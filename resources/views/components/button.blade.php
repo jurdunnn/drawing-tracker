@@ -1,12 +1,25 @@
-@props(['link', 'theme' => 'primary', 'classes' => null])
+@props([
+    'link',
+    'theme' => 'primary',
+    'icon' => null,
+    'iconColor' => null,
+    'buttonClasses' => 'ml-auto mr-auto px-4 py-3 my-2 font-bold rounded-full text-center '
+])
 
-@if ($theme === 'primary')
-    <a href="{{ $link }}" class="text-[#23243D] bg-gray-100 ml-auto mr-auto w-3/4 py-3 px-4 font-bold uppercase rounded-full text-center lg:w-1/3">
-       {{$slot}}
-    </a> 
-
-@elseif ($theme === 'secondary')
-    <a href="{{ $link }}" class="w-3/4 px-4 py-3 ml-auto mr-auto text-center text-gray-100 rounded-full lg:w-1/3">
-       {{$slot}}
-    </a> 
-@endif
+<a {{
+    $attributes->class([
+        $buttonClasses,
+        'text-[#23243D] bg-gray-100 md:w-1/2 w-3/4 uppercase ' => $theme === 'primary',
+        'leading-[2rem]' => $icon,
+        'text-gray-100 w-full' => $theme === 'secondary',
+        'bg-red-600 hover:bg-red-700 text-white' => $theme === 'danger'
+    ])->merge([
+        'href' => $link ?? null,
+    ])
+}}
+    >
+    {{$slot}}
+    <span class="{{ $iconColor }}">
+        <i class="fa-solid {{ $icon }}"></i>
+    </span>
+</a> 
