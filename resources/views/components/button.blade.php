@@ -3,10 +3,11 @@
     'theme' => 'primary',
     'icon' => null,
     'iconColor' => null,
+    'type' => null,
     'buttonClasses' => 'ml-auto mr-auto px-4 py-3 my-2 font-bold rounded-full text-center '
 ])
 
-<a {{
+<button {{
     $attributes->class([
         $buttonClasses,
         'text-[#23243D] bg-gray-100 md:w-1/2 w-3/4 uppercase ' => $theme === 'primary',
@@ -15,6 +16,7 @@
         'bg-red-600 hover:bg-red-700 text-white' => $theme === 'danger'
     ])->merge([
         'href' => $link ?? null,
+        'type' => $type,
     ])
 }}
     >
@@ -22,4 +24,4 @@
     <span class="{{ $iconColor }}">
         <i class="fa-solid {{ $icon }}"></i>
     </span>
-</a> 
+</button> 
