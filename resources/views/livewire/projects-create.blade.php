@@ -22,7 +22,7 @@
                             <label>Color</label>
                             <div class="flex flex-row mt-2 gap-x-6">
                                 <a wire:click="setColor('blue')" class="w-8 h-8 bg-blue-500 rounded-full hover:scale-105"></a>
-                                <a wire:click="setColor('yellow')" class="w-8 h-8 bg-yellow-800 rounded-full hover:scale-105"></a>
+                                <a wire:click="setColor('yellow')" class="w-8 h-8 bg-yellow-500 rounded-full hover:scale-105"></a>
                                 <a wire:click="setColor('red')" class="w-8 h-8 bg-red-500 rounded-full hover:scale-105"></a>
                                 <a wire:click="setColor('green')" class="w-8 h-8 bg-green-500 rounded-full hover:scale-105"></a>
                                 <a wire:click="setColor('teal')" class="w-8 h-8 bg-teal-500 rounded-full hover:scale-105"></a>

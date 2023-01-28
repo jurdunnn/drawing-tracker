@@ -34,7 +34,7 @@
             </a>
         @endforeach
 
-        <a href="{{ route('projects.create-project') }}" class="flex flex-col cursor-pointer max-w-content gap-y-2 hover:scale-105">
+        <a href="{{ route('projects.create') }}" class="flex flex-col cursor-pointer max-w-content gap-y-2 hover:scale-105">
             <div class="bg-[#434458] ml-auto mr-auto w-28 h-28 flex justify-center text-3xl items-center rounded-2xl font-bold text-white">
                 <span class="">
                     <i class="fa-solid fa-plus fa-xl"></i>

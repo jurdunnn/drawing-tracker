@@ -34,7 +34,7 @@ class Project extends Model
 
     public function showRoute()
     {
-        return route('projects.index', ['project' => $this->id]);
+        return route('projects.drawings.index', ['project' => $this->id]);
     }
 
     public function isBeingViewed()
