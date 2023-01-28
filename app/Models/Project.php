@@ -39,7 +39,7 @@ class Project extends Model
 
     public function isBeingViewed()
     {
-        return Str::contains(url()->current(), "projects/{$this->id}");
+        return Str::contains(url()->current(), "projects/{$this->id}/");
     }
 
     public function getAbbreviatedNameAttribute()
