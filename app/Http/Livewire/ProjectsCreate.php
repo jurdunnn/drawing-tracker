@@ -37,7 +37,10 @@ class ProjectsCreate extends Component
         $this->validate();
 
         $this->project->user_id = Auth::user()->id;
+        $this->project->last_opened = now();
 
         $this->project->save();
+
+        return redirect($this->project->showRoute());
     }
 }

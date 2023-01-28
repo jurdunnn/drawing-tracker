@@ -5,9 +5,6 @@
         <div class="relative flex flex-col h-full p-8 text-gray-500">
             <div class="flex justify-end gap-x-4">
                 <span class="text-{{ $project->color->name }}-500 cursor-pointer hover:scale-110 hover:text-{{ $project->color->name }}-600">
-                    <i class="fa-solid fa-palette fa-2xl"></i>
-                </span>
-                <span class="text-{{ $project->color->name }}-500 cursor-pointer hover:scale-110 hover:text-{{ $project->color->name }}-600">
                     <i class="fa-solid fa-pencil fa-2xl"></i>
                 </span>
             </div>
@@ -30,7 +27,7 @@
                         <li class="flex flex-col justify-between gap-y-4 md:flex-row">
                             <div class="flex gap-x-2 md:gap-x-4">
                                 <!-- Check box -->
-                                <div class="flex w-8 h-8 px-4 text-3xl font-bold bg-{{ $project->color->name}}-500 rounded-full shadow-2xl cursor-pointer hover:scale-110 hover:bg-{{ $project->color->name }}-600">
+                                <div class="flex w-8 h-8 px-4 text-3xl font-bold bg-{{ $project->color->name }}-500 rounded-full shadow-2xl cursor-pointer hover:scale-110 hover:bg-{{ $project->color->name }}-600">
                                     <span class="-ml-2 text-[1rem] text-white">
                                         <i class="fa-solid fa-check"></i>
                                     </span>
