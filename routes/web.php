@@ -14,6 +14,7 @@ Route::post('authenticate', [LoginController::class, 'authenticate'])->name('aut
 Route::prefix('projects')->group(function () {
     Route::name('projects.')->group(function () {
         Route::get('/create', ProjectsCreate::class)->name('create');
+        Route::get('/{project}/edit', ProjectsCreate::class)->name('edit');
 
         Route::prefix('/{project}/drawings')->group(function () {
             Route::name('drawings.')->group(function () {

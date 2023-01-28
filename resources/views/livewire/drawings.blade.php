@@ -4,9 +4,9 @@
     <div class="bg-gray-100 shadow-2xl rounded-3xl">
         <div class="relative flex flex-col h-full p-8 text-gray-500">
             <div class="flex justify-end gap-x-4">
-                <span class="text-{{ $project->color->name }}-500 cursor-pointer hover:scale-110 hover:text-{{ $project->color->name }}-600">
+                <a href="{{ $project->editRoute() }}" class="text-{{ $project->color->name }}-500 cursor-pointer hover:scale-110 hover:text-{{ $project->color->name }}-600">
                     <i class="fa-solid fa-pencil fa-2xl"></i>
-                </span>
+                </a>
             </div>
             
             <div class="flex flex-col px-2 mt-4 md:px-12 gap-y-24">

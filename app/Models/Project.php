@@ -15,6 +15,7 @@ class Project extends Model
         'last_opened',
         'name',
         'description',
+        'color_id',
     ];
 
     public function color()
@@ -35,6 +36,11 @@ class Project extends Model
     public function showRoute()
     {
         return route('projects.drawings.index', ['project' => $this->id]);
+    }
+
+    public function editRoute()
+    {
+        return route('projects.edit', ['project' => $this->id]);
     }
 
     public function isBeingViewed()

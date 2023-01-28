@@ -10,6 +10,7 @@ use Livewire\Component;
 class ProjectsCreate extends Component
 {
     public Project $project;
+    public bool $updating;
 
     protected $rules = [
         'project.name' => 'required|max:60',
@@ -17,9 +18,11 @@ class ProjectsCreate extends Component
         'project.color_id' => 'int|required',
     ];
 
-    public function mount()
+    public function mount(?Project $project)
     {
-        $this->project = new Project();
+        $this->updating = $project->name ? true : false;
+
+        $this->project = $project ?: new Project();
     }
 
     public function render()
@@ -29,6 +32,14 @@ class ProjectsCreate extends Component
 
     public function setColor($color)
     {
+        if ($this->updating) {
+            $this->project->update([
+                'color_id' => Color::where('name', $color)->first()->id
+            ]);
+
+            return;
+        }
+
         $this->project->color_id = Color::where('name', $color)->first()->id;
     }
 
