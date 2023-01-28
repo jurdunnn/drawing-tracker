@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Livewire\Drawings;
+use App\Http\Livewire\DrawingsCreate;
 use App\Http\Livewire\Projects;
+use App\Http\Livewire\ProjectsCreate;
 use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', '/login');
@@ -11,8 +13,8 @@ Route::post('authenticate', [LoginController::class, 'authenticate'])->name('aut
 
 Route::prefix('projects')->group(function () {
     Route::name('projects.')->group(function () {
-        Route::get('/create', Projects::class)->name('create');
+        Route::get('/create', ProjectsCreate::class)->name('create');
         Route::get('/{project}/drawings', Drawings::class)->name('index');
-        Route::get('/{project}/drawings/create', Drawings::class)->name('create');
+        Route::get('/{project}/drawings/create', DrawingsCreate::class)->name('create');
     });
 });

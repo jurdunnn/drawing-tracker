@@ -1,4 +1,4 @@
-@props(['type', 'name' => '',])
+@props(['type', 'name' => '', 'model' => '',])
 
 <input {{ $attributes->class([
         "bg-[#434458] font-bold uppercase text-gray-100 p-4 rounded-xl",
@@ -7,6 +7,7 @@
         'placeholder' => $name,
         'id' => $name,
         'type' => $type,
+        'wire:model' => $model,
     ]) }}
 />
 

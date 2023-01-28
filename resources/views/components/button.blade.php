@@ -4,7 +4,7 @@
     'icon' => null,
     'iconColor' => null,
     'type' => null,
-    'buttonClasses' => 'ml-auto mr-auto px-4 py-3 my-2 font-bold rounded-full text-center '
+    'buttonClasses' => 'ml-auto mr-auto px-4 py-3 my-2 font-bold rounded-full text-center'
 ])
 
 <button {{
