@@ -13,8 +13,8 @@ Route::post('authenticate', [LoginController::class, 'authenticate'])->name('aut
 
 Route::prefix('projects')->group(function () {
     Route::name('projects.')->group(function () {
-        Route::get('/create', ProjectsCreate::class)->name('create');
+        Route::get('/create', ProjectsCreate::class)->name('create-project');
         Route::get('/{project}/drawings', Drawings::class)->name('index');
-        Route::get('/{project}/drawings/create', DrawingsCreate::class)->name('create');
+        Route::get('/{project}/drawings/create', DrawingsCreate::class)->name('create-drawing');
     });
 });
