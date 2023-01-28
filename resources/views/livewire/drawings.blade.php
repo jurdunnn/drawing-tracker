@@ -8,7 +8,7 @@
         </span>
     </div>
     
-    <div class="flex flex-col px-12 mt-4 gap-y-24">
+    <div class="flex flex-col px-2 mt-4 md:px-12 gap-y-24">
         <div class="flex flex-col gap-y-3">
             <h3 class="text-4xl font-bold text-gray-800">Some Project Name</h3>
             <p class="max-w-lg">Lorem ipsum dolar sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidunt</p>
@@ -23,11 +23,11 @@
             </div>
 
             <ul class="flex flex-col gap-y-8">
-                <li class="flex justify-between">
-                    <div class="flex gap-x-4">
+                <li class="flex flex-col justify-between gap-y-4 md:flex-row">
+                    <div class="flex gap-x-2 md:gap-x-4">
                         <!-- Check box -->
-                        <div class="flex w-8 h-8 text-3xl font-bold bg-teal-500 rounded-full shadow-2xl cursor-pointer hover:scale-110 hover:bg-teal-600">
-                            <span class="pl-[8px] -pt-[1px] text-[1rem] text-white">
+                        <div class="flex w-8 h-8 px-4 text-3xl font-bold bg-teal-500 rounded-full shadow-2xl cursor-pointer hover:scale-110 hover:bg-teal-600">
+                            <span class="-ml-2 text-[1rem] text-white">
                                 <i class="fa-solid fa-check"></i>
                             </span>
                         </div>
@@ -38,45 +38,48 @@
                         </p>
                     </div>
 
-                    <div class="flex items-center font-bold text-center text-white bg-green-500 opacity-[0.6] rounded-full cursor-pointer hover:scale-105">
+                    <div class="flex items-center w-32 font-bold text-center text-white bg-green-500 opacity-[0.6] rounded-full cursor-pointer hover:scale-105">
                         <p class="w-32">Approved</p>
                     </div>
                 </li>
 
-                <li class="flex justify-between">
-                    <div class="flex gap-x-4">
+                <li class="flex flex-col justify-between gap-y-4 md:flex-row">
+                    <div class="flex gap-x-2 md:gap-x-4">
                         <!-- Check box -->
-                        <div class="flex w-8 h-8 text-3xl font-bold bg-teal-500 rounded-full shadow-2xl cursor-pointer hover:scale-110 hover:bg-teal-600">
-                            <span class="pl-[8px] -pt-[1px] text-[1rem] text-white">
+                        <div class="flex w-8 h-8 px-4 text-3xl font-bold bg-teal-500 rounded-full shadow-2xl cursor-pointer hover:scale-110 hover:bg-teal-600">
+                            <span class="-ml-2 text-[1rem] text-white">
                                 <i class="fa-solid fa-check"></i>
                             </span>
                         </div>
 
                         <!-- Drawing Description -->
                         <p class="leading-[2rem]">
-                            This is a drawing of a product in this project
+                            Some drawing of a product in this project
                         </p>
                     </div>
 
-                    <div class="flex items-center font-bold text-center text-white bg-amber-500 opacity-[0.6] rounded-full cursor-pointer hover:scale-105">
-                        <p class="w-32">In Review</p>
+                    <div class="flex items-center w-32 font-bold text-center text-white bg-green-500 opacity-[0.6] rounded-full cursor-pointer hover:scale-105">
+                        <p class="w-32">Approved</p>
                     </div>
                 </li>
 
-                <li class="flex justify-between">
-                    <div class="flex gap-x-4">
+                <li class="flex flex-col justify-between gap-y-4 md:flex-row">
+                    <div class="flex gap-x-2 md:gap-x-4">
                         <!-- Check box -->
-                        <div class="flex w-8 h-8 text-3xl font-bold bg-gray-100 border-4 rounded-full shadow-2xl cursor-pointer hover:scale-110">
+                        <div class="flex w-8 h-8 px-4 text-3xl font-bold bg-teal-500 rounded-full shadow-2xl cursor-pointer hover:scale-110 hover:bg-teal-600">
+                            <span class="-ml-2 text-[1rem] text-white">
+                                <i class="fa-solid fa-check"></i>
+                            </span>
                         </div>
 
                         <!-- Drawing Description -->
                         <p class="leading-[2rem]">
-                            Another drawing of a product in this project
+                            Some drawing of a product in this project
                         </p>
                     </div>
 
-                    <div class="flex items-center font-bold text-center text-white bg-blue-500 opacity-[0.6] rounded-full cursor-pointer hover:scale-105">
-                        <p class="w-32">In Progress</p>
+                    <div class="flex items-center w-32 font-bold text-center text-white bg-green-500 opacity-[0.6] rounded-full cursor-pointer hover:scale-105">
+                        <p class="w-32">Approved</p>
                     </div>
                 </li>
             </ul>
