@@ -11,6 +11,12 @@ class Project extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'last_opened',
+        'name',
+        'description',
+    ];
+
     public function color()
     {
         return $this->belongsTo(Color::class);
