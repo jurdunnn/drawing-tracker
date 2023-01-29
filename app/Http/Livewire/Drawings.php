@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Project;
+use Illuminate\Support\Collection;
 use Livewire\Component;
 
 class Drawings extends Component

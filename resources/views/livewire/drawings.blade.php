@@ -24,36 +24,36 @@
                     </div>
 
                     <ul class="flex flex-col gap-y-8">
-                        <li class="flex flex-col justify-between gap-y-4 md:flex-row">
-                            <div class="flex gap-x-2 md:gap-x-4">
-                                <!-- Check box -->
-                                <div class="flex w-8 h-8 px-4 text-3xl font-bold bg-{{ $project->color->name }}-500 rounded-full shadow-2xl cursor-pointer hover:scale-110 hover:bg-{{ $project->color->name }}-600">
-                                    <span class="-ml-2 text-[1rem] text-white">
-                                        <i class="fa-solid fa-check"></i>
-                                    </span>
+                        @foreach($project->drawings as $drawing)
+                            <li class="flex flex-col justify-between gap-y-4 md:flex-row">
+                                <div class="flex gap-x-2 md:gap-x-4">
+                                    <!-- Check box -->
+                                    <div class="flex w-8 h-8 px-4 text-3xl font-bold bg-{{ $project->color->name }}-500 rounded-full shadow-2xl cursor-pointer hover:scale-110 hover:bg-{{ $project->color->name }}-600">
+                                        <span class="-ml-2 text-[1rem] text-white">
+                                            <i class="fa-solid fa-check"></i>
+                                        </span>
+                                    </div>
+
+                                    <!-- Drawing Description -->
+                                    <p class="leading-[2rem]">{{ $drawing->name }}</p>
                                 </div>
 
-                                <!-- Drawing Description -->
-                                <p class="leading-[2rem]">
-                                    Some drawing of a product in this project
-                                </p>
-                            </div>
-
-                            <div class="flex items-center w-32 font-bold text-center text-white bg-green-500 opacity-[0.6] rounded-full cursor-pointer hover:scale-105">
-                                <p class="w-32">Approved</p>
-                            </div>
-                        </li>
+                                <div class="flex items-center w-32 font-bold text-center text-white bg-{{ $drawing->tag->color->name }}-500 opacity-[0.6] rounded-full cursor-pointer hover:scale-105">
+                                    <p class="w-32">{{ $drawing->tag->name }}</p>
+                                </div>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
 
-            <div class="absolute flex flex-col cursor-pointer bottom-4 right-4 max-w-content gap-y-2 hover:scale-105">
+            <a href="{{ route('projects.drawings.create', ['project' => $this->project->id]) }}" class="absolute flex flex-col cursor-pointer bottom-4 right-4 max-w-content gap-y-2 hover:scale-105">
                 <div class="flex items-center justify-center w-16 h-16 ml-auto mr-auto text-3xl font-bold text-white bg-{{ $project->color->name }}-500 shadow-2xl rounded-2xl">
                     <span class="pt-2">
                         <i class="fa-solid fa-plus"></i>
                     </span>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 </div>
