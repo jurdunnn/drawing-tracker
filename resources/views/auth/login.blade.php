@@ -1,4 +1,4 @@
-<x-app>
+<x-layouts.app>
     <div class="relative flex justify-center min-h-screen py-4 items-top sm:items-center sm:pt-0">
         <div class="flex flex-col px-4 xl:1/3">
             <h2 class="text-white py-4 text-center text-[90px] font-bold title">Project-Drawer</h2>
@@ -41,4 +41,4 @@
             <x-button theme="secondary" link="#">Login as a guest</x-button>
         </div>
     </div>
-</x-app>
+</x-layouts.app>

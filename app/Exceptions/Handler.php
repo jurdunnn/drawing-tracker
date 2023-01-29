@@ -3,6 +3,8 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -43,8 +45,13 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
-        $this->reportable(function (Throwable $e) {
-            //
+        // Redirect to home, or users project index if a 404 is thrown.
+        $this->renderable(function (NotFoundHttpException $e, $request) {
+            if (Auth::user()) {
+                return redirect()->route('projects.index');
+            }
+
+            return redirect()->route('/');
         });
     }
 }

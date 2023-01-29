@@ -5,7 +5,7 @@
         <div class="relative flex flex-col h-full p-8 text-gray-500">
             <div class="flex flex-col px-2 mt-4 md:px-12 gap-y-24">
                 <div class="flex flex-col gap-y-6">
-                    <h3 class="text-4xl font-bold text-gray-800">New Project</h3>
+                    <h3 class="text-4xl font-bold text-gray-800">{{ $updating ? 'Update' : 'New' }} Project</h3>
 
                     <form wire:submit.prevent="submit" class="flex flex-col gap-y-6">
                         <div>
@@ -36,6 +36,14 @@
                             class="@if($project->color) bg-{{ $project->color->name }}-500 @endif w-1/3 p-4 mt-12 ml-auto mr-auto font-bold text-gray-100 bg-[#434458] hover:scale-105 rounded-2xl">
                             {{ $updating ? 'Update' : 'Create' }}
                         </button>
+
+                        @if ($updating)
+                            <button 
+                                wire:click="delete"
+                                class="w-1/3 p-4 ml-auto mr-auto font-bold text-red-500 underline hover:scale-105">
+                                Delete Project 
+                            </button>
+                        @endif
                     </form>
                 </div>
             </div>

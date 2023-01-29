@@ -18,7 +18,7 @@ class Projects extends Component
 
         return view('livewire.projects', [
             'projects' => $projects,
-        ])->layout('layouts.app');
+        ])->layout('components.layouts.app');
     }
 
     public function redirectToProject(Project $project)

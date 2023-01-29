@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Color;
 use App\Models\Project;
+use Exception;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -27,7 +28,7 @@ class ProjectsCreate extends Component
 
     public function render()
     {
-        return view('livewire.projects-create');
+        return view('livewire.projects-create')->layout('components.layouts.app');
     }
 
     public function setColor($color)
@@ -41,6 +42,13 @@ class ProjectsCreate extends Component
         }
 
         $this->project->color_id = Color::where('name', $color)->first()->id;
+    }
+
+    public function delete()
+    {
+        Project::findOrFail($this->project->id)->delete();
+
+        return redirect()->route('projects.index');
     }
 
     public function submit()

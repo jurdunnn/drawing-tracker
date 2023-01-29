@@ -33,6 +33,11 @@ class Project extends Model
         return $this->hasMany(Drawing::class);
     }
 
+    public function indexRoute()
+    {
+        return route('projects.index');
+    }
+
     public function showRoute()
     {
         return route('projects.drawings.index', ['project' => $this->id]);

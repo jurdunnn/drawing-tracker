@@ -16,6 +16,6 @@ class Drawings extends Component
 
     public function render()
     {
-        return view('livewire.drawings');
+        return view('livewire.drawings')->layout('components.layouts.app');
     }
 }
