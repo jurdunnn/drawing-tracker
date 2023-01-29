@@ -38,9 +38,9 @@
                                     <p class="leading-[2rem]">{{ $drawing->name }}</p>
                                 </div>
 
-                                <div class="flex items-center w-32 font-bold text-center text-white bg-{{ $drawing->tag->color->name }}-500 opacity-[0.6] rounded-full cursor-pointer hover:scale-105">
+                                <a href="{{ route('projects.drawings.edit', ['project' => $project->id, 'drawing' => $drawing->id]) }}" class="flex items-center w-32 font-bold text-center text-white bg-{{ $drawing->tag->color->name }}-500 opacity-[0.6] rounded-full cursor-pointer hover:scale-105">
                                     <p class="w-32">{{ $drawing->tag->name }}</p>
-                                </div>
+                                </a>
                             </li>
                         @endforeach
                     </ul>

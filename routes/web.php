@@ -21,6 +21,7 @@ Route::prefix('projects')->group(function () {
             Route::name('drawings.')->group(function () {
                 Route::get('/', Drawings::class)->name('index');
                 Route::get('/create', DrawingsCreate::class)->name('create');
+                Route::get('/{drawing}/edit', DrawingsCreate::class)->name('edit');
             });
         });
     });

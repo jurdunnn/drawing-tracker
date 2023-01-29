@@ -51,7 +51,7 @@ class Handler extends ExceptionHandler
                 return redirect()->route('projects.index');
             }
 
-            return redirect()->route('/');
+            return redirect()->route('login');
         });
     }
 }
