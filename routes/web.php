@@ -8,7 +8,9 @@ use App\Http\Livewire\ProjectsCreate;
 use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', '/login');
+
 Route::get('login', [LoginController::class, 'index'])->name('login');
+
 Route::post('authenticate', [LoginController::class, 'authenticate'])->name('authenticate');
 
 Route::prefix('projects')->group(function () {
