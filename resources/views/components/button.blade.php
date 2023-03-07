@@ -3,6 +3,7 @@
     'theme' => 'primary',
     'icon' => null,
     'iconColor' => null,
+    'iconType' => 'solid',
     'type' => null,
     'buttonClasses' => 'ml-auto mr-auto px-4 py-3 my-2 font-bold rounded-full text-center'
 ])
@@ -22,7 +23,7 @@
 }}
     >
     <span class="{{ $iconColor }}">
-        <i class="fa-solid {{ $icon }}"></i>
+        <i class="fa-{{ $iconType }} {{ $icon }}"></i>
     </span>
     {{$slot}}
 </a> 

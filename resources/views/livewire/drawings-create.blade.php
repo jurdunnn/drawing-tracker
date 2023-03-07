@@ -3,6 +3,18 @@
 
     <div class="bg-gray-100 shadow-2xl rounded-3xl">
         <div class="relative flex flex-col h-full p-8 text-gray-500">
+            <div class="flex justify-start max-w-lg">
+                <x-button 
+                link="{{ $project->id ? route('projects.drawings.index', [$project->id]) : route('projects.index') }}" 
+                icon="fa-arrow-left-long fa-xl" 
+                iconColor="" 
+                buttonClasses="max-w-content text-sm text-gray-800 hover:font-bold hover:scale-110"
+                theme="none"
+                >
+                Back
+                </x-button>
+            </div>
+
             <div class="flex flex-col px-2 mt-4 md:px-12 gap-y-24">
                 <div class="flex flex-col gap-y-6">
                     <h3 class="text-4xl font-bold text-gray-800">{{ $updating ? 'Update' : 'New' }} Drawing</h3>
