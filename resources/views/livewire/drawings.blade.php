@@ -6,13 +6,10 @@
             <div class="flex justify-start max-w-lg">
                 <x-button 
                 link="{{ route('projects.index') }}" 
-                icon="fa-circle-xmark fa-xl" 
-                iconType="regular"
-                iconColor="" 
+                icon="fa-xmark fa-2xl" 
                 buttonClasses="max-w-content text-sm text-gray-800 hover:font-bold hover:scale-110"
                 theme="none"
                 >
-                Close
                 </x-button>
             </div>
 
