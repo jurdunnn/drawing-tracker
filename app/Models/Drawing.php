@@ -26,4 +26,9 @@ class Drawing extends Model
     {
         return $this->belongsTo(Tag::class);
     }
+
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+    }
 }
