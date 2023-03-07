@@ -32,7 +32,7 @@
 
                         <div>
                             <label>Color</label>
-                            <div class="flex flex-row mt-2 gap-x-6">
+                            <div class="mt-2 grid grid-cols-6 md:grid-cols-5 lg:grid-cols-7 gap-6">
                                 <a wire:click="setColor('blue')" class="w-8 h-8 bg-blue-500 rounded-full cursor-pointer hover:scale-105"></a>
                                 <a wire:click="setColor('yellow')" class="w-8 h-8 bg-yellow-500 rounded-full cursor-pointer hover:scale-105"></a>
                                 <a wire:click="setColor('red')" class="w-8 h-8 bg-red-500 rounded-full cursor-pointer hover:scale-105"></a>
