@@ -6,7 +6,7 @@
         <title>Drawing Tracker</title>
 
         @vite('resources/css/app.css')
-        <script defer src="https://unpkg.com/alpinejs@3.10.5/dist/cdn.min.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.11.1/dist/cdn.min.js"></script>
 
         <link href="{{ asset('fontawesome/css/fontawesome.css') }}" rel="stylesheet">
         <link href="{{ asset('fontawesome/css/brands.css') }}" rel="stylesheet">

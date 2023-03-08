@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpFoundation\Request;
 use Illuminate\Support\Str;
 
@@ -31,6 +33,15 @@ class Project extends Model
     public function drawings()
     {
         return $this->hasMany(Drawing::class);
+    }
+
+    public function taggedDrawings(string $tag)
+    {
+        Log::info("Finding $tag");
+
+        $tag = Tag::where('name', $tag)->first();
+
+        return $this->drawings()->where('tag_id', $tag->id)->get();
     }
 
     public function indexRoute()

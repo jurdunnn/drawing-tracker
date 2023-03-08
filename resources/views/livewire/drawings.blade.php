@@ -1,4 +1,4 @@
-<div class="w-full min-h-screen p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="w-full min-h-screen p-4 grid grid-cols-1 md:grid-cols-2 gap-4" wire:poll.500ms>
     <livewire:projects />
 
     <x-view-wrapper>
@@ -19,7 +19,14 @@
         </x-button>
 
         <x-view-contents :item="$project">
-            <x-item-list name="Current" :items="$project->drawings" />
+            <x-item-list name="All" :items="$project->drawings"></x-item-list>
+            @if ($project->drawings->first())
+                @foreach ($project->drawings->first()->tag->getAvailableTags() as $tag)
+                    @if ($project->taggedDrawings($tag->name)->first())
+                        <x-item-list name="{{ $tag->name }}" :items="$project->taggedDrawings($tag->name)"></x-item-list>
+                    @endif
+                @endforeach
+            @endif
         </x-view-contents>
 
         <a href="{{ route('projects.drawings.create', ['project' => $this->project->id]) }}" class="absolute flex flex-col cursor-pointer bottom-4 right-4 max-w-content gap-y-2 hover:scale-105">
