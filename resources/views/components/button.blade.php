@@ -5,10 +5,11 @@
     'iconColor' => null,
     'iconType' => 'solid',
     'type' => null,
-    'buttonClasses' => 'ml-auto mr-auto px-4 py-3 my-2 font-bold rounded-full text-center'
+    'buttonClasses' => 'ml-auto mr-auto px-4 py-3 my-2 font-bold rounded-full text-center',
+    'buttonTag' => 'a'
 ])
 
-<a {{
+<{{ $buttonTag }} {{
     $attributes->class([
         $buttonClasses,
         'text-[#23243D] bg-gray-100 md:w-1/2 w-3/4 uppercase ' => $theme === 'primary',
@@ -26,4 +27,4 @@
         <i class="fa-{{ $iconType }} {{ $icon }}"></i>
     </span>
     {{$slot}}
-</a> 
+</{{ $buttonTag }}> 

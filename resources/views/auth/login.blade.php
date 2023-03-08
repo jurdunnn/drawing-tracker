@@ -34,7 +34,7 @@
                         <p class="font-bold text-red-500">{{ $errors->first('incorrect') }}</p>
                     @endif
 
-                    <x-button type="submit" icon="pl-1 fa-arrow-right-to-bracket">Log in</x-button>
+                    <x-button type="submit" buttonTag="button" icon="pl-1 fa-arrow-right-to-bracket">Log in</x-button>
                 </form>
             </div>
 
