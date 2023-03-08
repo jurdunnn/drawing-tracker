@@ -1,14 +1,27 @@
 @props([
     'name',
     'items',
+    'tag' => null
 ])
 
-<div>
-    <div class="flex justify-between pb-6 border-b-2">
+<div class="pb-12">
+    <div class="flex justify-between border-b-2" x-data="{ showItemListOptions: false }" x-on:click.away="showItemListOptions = false">
         <h3 class="text-2xl font-bold text-gray-700">{{ $name }}</h3>
-        <span class="pt-2 text-gray-600">
-            <i class="fa-solid fa-ellipsis fa-2xl"></i>
-        </span>
+
+        @if ($tag)
+            <div class="relative flex justify-end w-1/3">
+                <button style="none" x-on:click="showItemListOptions = !showItemListOptions" class="relative pt-2 text-gray-600 hover:scale-110">
+                    <i class="fa-solid fa-ellipsis fa-2xl"></i>
+                </button>
+
+                <div x-show="showItemListOptions" class="absolute top-0 z-10 w-1/2 p-4 text-center bg-gray-100 shadow-xl left-12 rounded-2xl">
+                    <button class="hover:font-bold" wire:click="hideProjectTag({{ $tag->id }})">
+                        <i class="fa-regular fa-eye-slash"></i>
+                        Hide
+                    </button>
+                </div>
+            </div>
+        @endif
     </div>
 
     <ul class="flex flex-col gap-y-8">

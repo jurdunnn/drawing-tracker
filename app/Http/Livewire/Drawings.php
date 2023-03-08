@@ -28,4 +28,11 @@ class Drawings extends Component
             'tag_id' => $tag->id,
         ]);
     }
+
+    public function hideProjectTag(Tag $tag)
+    {
+        $this->project->showTags()->create([
+            'tag_id' => $tag->id,
+        ]);
+    }
 }

@@ -35,13 +35,20 @@ class Project extends Model
         return $this->hasMany(Drawing::class);
     }
 
-    public function taggedDrawings(string $tag)
+    public function showTags()
     {
-        Log::info("Finding $tag");
+        return $this->hasMany(ProjectShowTag::class);
+    }
 
-        $tag = Tag::where('name', $tag)->first();
+    public function taggedDrawings(Tag $tag): Collection | bool
+    {
+        if ($this->showTags()->where('tag_id', $tag->id)->exists()) {
+            return false;
+        }
 
-        return $this->drawings()->where('tag_id', $tag->id)->get();
+        $drawings = $this->drawings()->where('tag_id', $tag->id);
+
+        return $drawings->doesntExist() ? false : $drawings->get();
     }
 
     public function indexRoute()

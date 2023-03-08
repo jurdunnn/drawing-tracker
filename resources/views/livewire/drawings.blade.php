@@ -22,8 +22,8 @@
             <x-item-list name="All" :items="$project->drawings"></x-item-list>
             @if ($project->drawings->first())
                 @foreach ($project->drawings->first()->tag->getAvailableTags() as $tag)
-                    @if ($project->taggedDrawings($tag->name)->first())
-                        <x-item-list name="{{ $tag->name }}" :items="$project->taggedDrawings($tag->name)"></x-item-list>
+                    @if ($project->taggedDrawings($tag))
+                        <x-item-list name="{{ $tag->name }}" :tag="$tag" :items="$project->taggedDrawings($tag)"></x-item-list>
                     @endif
                 @endforeach
             @endif
