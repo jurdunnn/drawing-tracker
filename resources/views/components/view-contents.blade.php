@@ -3,7 +3,7 @@
     'closeRoute',
 ])
 
-<div class="flex flex-col">
+<div class="flex flex-col h-full">
     <div class="bg-{{ $item->color->name }}-500 rounded-t-2xl text-white">
         <div class="flex justify-end w-full px-10 py-4">
             <x-button 
@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    <div class="flex flex-col mt-6 max-h-[75vh] no-scrollbar overflow-y-scroll gap-y-12 md:px-16">
+    <div class="flex flex-col max-h-[75vh] pb-32 pt-4 overflow-y-scroll no-scrollbar gap-y-12 md:px-8">
         {{ $slot }}
     </div>
 </div>
