@@ -1,17 +1,10 @@
-<div class="w-full min-h-screen p-4 grid grid-cols-1 md:grid-cols-2 gap-4" wire:poll.500ms>
+<div class="w-full max-h-[100vh] h-screen p-4 grid grid-cols-1 md:grid-cols-2 gap-4" wire:poll.500ms>
     <livewire:projects />
 
     <x-view-wrapper>
-        <x-button 
-                link="{{ route('projects.index') }}" 
-                icon="fa-xmark fa-2xl" 
-                buttonClasses="max-w-content text-sm text-gray-800"
-                theme="none"
-            >
-        </x-button>
-
-        <x-view-contents :item="$project">
+        <x-view-contents :item="$project" :closeRoute="route('projects.index')">
             <x-item-list name="All" :items="$project->drawings"></x-item-list>
+
             @if ($project->drawings->first())
                 @foreach ($project->drawings->first()->tag->getAvailableTags() as $tag)
                     @if ($project->taggedDrawings($tag))
