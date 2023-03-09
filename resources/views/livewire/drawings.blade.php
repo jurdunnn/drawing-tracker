@@ -14,7 +14,8 @@
                     @endforeach
                 @endif
             @else
-                <p class="py-4 text-center">This project has no drawings.</p>
+                <p class="pt-4 text-center">This project has no drawings.</p>
+                <a class="font-bold text-center text-{{ $project->color->name }}-500 hover:underline px-12 mx-auto" href="{{ route('projects.drawings.create', ['project' => $this->project->id]) }}">Add a drawing</a>
             @endif
         </x-view-contents>
 
