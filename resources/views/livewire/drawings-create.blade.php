@@ -8,7 +8,7 @@
                 link="{{ $project->id ? route('projects.drawings.index', [$project->id]) : route('projects.index') }}" 
                 icon="fa-arrow-left-long fa-xl" 
                 iconColor="" 
-                buttonClasses="max-w-content text-sm text-gray-800 hover:font-bold hover:scale-110"
+                buttonClasses="max-w-content text-sm text-gray-800 hover:font-bold slow-hover hover:scale-110"
                 theme="none"
                 >
                 Back
@@ -59,7 +59,7 @@
                             <label>Tag</label>
                             <div class="flex flex-row mt-2 gap-x-6">
                                 @foreach($tags as $tag)
-                                    <a wire:click="setTag({{ $tag }})" class="flex items-center w-32 font-bold text-center text-white bg-{{ $tag->color->name }}-500 opacity-[0.6] rounded-full cursor-pointer hover:scale-105">
+                                    <a wire:click="setTag({{ $tag }})" class="flex items-center w-32 font-bold text-center text-white bg-{{ $tag->color->name }}-500 opacity-[0.6] rounded-full cursor-pointer slow-hover hover:scale-105">
                                         <p class="w-32">{{ $tag->name }}</p>
                                     </a>
                                 @endforeach
@@ -68,14 +68,14 @@
 
                         <button 
                             type="submit" 
-                            class="@if($project->color) bg-{{ $project->color->name }}-500 @endif w-1/3 p-4 mt-12 ml-auto mr-auto font-bold text-gray-100 bg-[#434458] hover:scale-105 rounded-2xl">
+                            class="@if($project->color) bg-{{ $project->color->name }}-500 @endif w-1/3 p-4 mt-12 ml-auto mr-auto font-bold text-gray-100 bg-[#434458] slow-hover hover:scale-105 rounded-2xl">
                             {{ $updating ? 'Update' : 'Create' }}
                         </button>
 
                         @if ($updating)
                             <button 
                                 wire:click="delete"
-                                class="w-1/3 p-4 ml-auto mr-auto font-bold text-red-500 underline hover:scale-105">
+                                class="w-1/3 p-4 ml-auto mr-auto font-bold text-red-500 underline slow-hover hover:scale-105">
                                 Delete Drawing 
                             </button>
                         @endif

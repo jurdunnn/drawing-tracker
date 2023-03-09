@@ -10,14 +10,6 @@
             >
         </x-button>
 
-        <x-button 
-                link="{{ $project->editRoute() }}" 
-                icon="fa-pencil fa-2xl" 
-                buttonClasses="text-{{ $project->color->name }}-500 ml-auto cursor-pointer hover:scale-110 hover:text-{{ $project->color->name }}-600"
-                theme="none"
-            >
-        </x-button>
-
         <x-view-contents :item="$project">
             <x-item-list name="All" :items="$project->drawings"></x-item-list>
             @if ($project->drawings->first())
@@ -29,12 +21,28 @@
             @endif
         </x-view-contents>
 
-        <a href="{{ route('projects.drawings.create', ['project' => $this->project->id]) }}" class="absolute flex flex-col cursor-pointer bottom-4 right-4 max-w-content gap-y-2 hover:scale-105">
-            <div class="flex items-center justify-center w-16 h-16 ml-auto mr-auto text-3xl font-bold text-white bg-{{ $project->color->name }}-500 shadow-2xl rounded-2xl">
-                <span class="pt-2">
-                    <i class="fa-solid fa-plus"></i>
-                </span>
-            </div>
-        </a>
+        @php
+            $buttonColor = "{$project->color->name}-500";
+
+            $buttons = [
+                [
+                    'link' => '#',
+                    'icon' => 'trash',
+                    'buttonColor' => 'red-500',
+                ],
+                [
+                    'link' => $project->editRoute(),
+                    'icon' => 'pencil',
+                    'buttonColor' =>  $buttonColor,
+                ],
+                [
+                    'link' => route('projects.drawings.create', ['project' => $this->project->id]),
+                    'icon' => 'plus',
+                    'buttonColor' => $buttonColor,
+                ],
+            ];
+        @endphp
+
+        <x-toolbelt :buttons="$buttons" :color="$buttonColor"/>
     </x-view-wrapper>
 </div>

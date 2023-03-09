@@ -5,6 +5,7 @@ use App\Http\Livewire\Drawings;
 use App\Http\Livewire\DrawingsCreate;
 use App\Http\Livewire\Projects;
 use App\Http\Livewire\ProjectsCreate;
+use App\Models\Project;
 use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', '/login');

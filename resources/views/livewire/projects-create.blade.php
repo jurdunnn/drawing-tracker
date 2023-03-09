@@ -8,7 +8,7 @@
                 link="{{ $project->id ? route('projects.drawings.index', [$project->id]) : route('projects.index') }}" 
                 icon="fa-arrow-left-long fa-xl" 
                 iconColor="" 
-                buttonClasses="max-w-content text-sm text-gray-800 hover:font-bold hover:scale-110"
+                buttonClasses="max-w-content text-sm text-gray-800 hover:font-bold slow-hover hover:scale-110"
                 theme="none"
                 >
                 Back
@@ -33,26 +33,26 @@
                         <div>
                             <label>Color</label>
                             <div class="mt-2 grid grid-cols-6 md:grid-cols-5 lg:grid-cols-7 gap-6">
-                                <a wire:click="setColor('blue')" class="w-8 h-8 bg-blue-500 rounded-full cursor-pointer hover:scale-105"></a>
-                                <a wire:click="setColor('yellow')" class="w-8 h-8 bg-yellow-500 rounded-full cursor-pointer hover:scale-105"></a>
-                                <a wire:click="setColor('red')" class="w-8 h-8 bg-red-500 rounded-full cursor-pointer hover:scale-105"></a>
-                                <a wire:click="setColor('green')" class="w-8 h-8 bg-green-500 rounded-full cursor-pointer hover:scale-105"></a>
-                                <a wire:click="setColor('teal')" class="w-8 h-8 bg-teal-500 rounded-full cursor-pointer hover:scale-105"></a>
-                                <a wire:click="setColor('orange')" class="w-8 h-8 bg-orange-500 rounded-full cursor-pointer hover:scale-105"></a>
-                                <a wire:click="setColor('purple')" class="w-8 h-8 bg-purple-500 rounded-full cursor-pointer hover:scale-105"></a>
+                                <a wire:click="setColor('blue')" class="w-8 h-8 bg-blue-500 rounded-full cursor-pointer slow-hover hover:scale-105"></a>
+                                <a wire:click="setColor('yellow')" class="w-8 h-8 bg-yellow-500 rounded-full cursor-pointer slow-hover hover:scale-105"></a>
+                                <a wire:click="setColor('red')" class="w-8 h-8 bg-red-500 rounded-full cursor-pointer slow-hover hover:scale-105"></a>
+                                <a wire:click="setColor('green')" class="w-8 h-8 bg-green-500 rounded-full cursor-pointer slow-hover hover:scale-105"></a>
+                                <a wire:click="setColor('teal')" class="w-8 h-8 bg-teal-500 rounded-full cursor-pointer slow-hover hover:scale-105"></a>
+                                <a wire:click="setColor('orange')" class="w-8 h-8 bg-orange-500 rounded-full cursor-pointer slow-hover hover:scale-105"></a>
+                                <a wire:click="setColor('purple')" class="w-8 h-8 bg-purple-500 rounded-full cursor-pointer slow-hover hover:scale-105"></a>
                             </div>
                         </div>
 
                         <button 
                             type="submit" 
-                            class="@if($project->color) bg-{{ $project->color->name }}-500 @endif w-1/3 p-4 mt-12 ml-auto mr-auto font-bold text-gray-100 bg-[#434458] hover:scale-105 rounded-2xl">
+                            class="@if($project->color) bg-{{ $project->color->name }}-500 @endif w-1/3 p-4 mt-12 ml-auto mr-auto font-bold text-gray-100 bg-[#434458] slow-hover hover:scale-105 rounded-2xl">
                             {{ $updating ? 'Update' : 'Create' }}
                         </button>
 
                         @if ($updating)
                             <button 
                                 wire:click="delete"
-                                class="w-1/3 p-4 ml-auto mr-auto font-bold text-red-500 underline hover:scale-105">
+                                class="w-1/3 p-4 ml-auto mr-auto font-bold text-red-500 underline slow-hover hover:scale-105">
                                 Delete Project 
                             </button>
                         @endif
