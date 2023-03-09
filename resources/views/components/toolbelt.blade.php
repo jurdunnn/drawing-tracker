@@ -20,7 +20,7 @@
             href="{{ $button['link'] }}" 
             class="flex flex-col cursor-pointer max-w-content gap-y-2 slow-hover hover:scale-105"
         >
-            <div class="flex items-center justify-center w-12 h-12 ml-auto my-auto mr-auto text-xl font-bold text-white bg-{{ $button['buttonColor'] }} shadow-2xl rounded-2xl">
+            <div class="flex items-center justify-center w-12 h-12 ml-auto my-auto mr-auto font-bold text-white bg-{{ $button['buttonColor'] }} shadow-2xl rounded-2xl">
             <span class="pt-1">
                     <i class="fa-solid fa-{{ $button['icon'] }}"></i>
                 </span>

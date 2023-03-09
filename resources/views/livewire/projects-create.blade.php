@@ -8,7 +8,7 @@
                 link="{{ $project->id ? route('projects.drawings.index', [$project->id]) : route('projects.index') }}" 
                 icon="fa-arrow-left-long fa-xl" 
                 iconColor="" 
-                buttonClasses="max-w-content text-sm text-gray-800 hover:font-bold slow-hover hover:scale-110"
+                buttonClasses="max-w-content text-gray-800 hover:font-bold slow-hover hover:scale-110"
                 theme="none"
                 >
                 Back
@@ -17,7 +17,7 @@
 
             <div class="flex flex-col px-2 mt-4 md:px-12 gap-y-24">
                 <div class="flex flex-col gap-y-6">
-                    <h3 class="text-4xl font-bold text-gray-800">{{ $updating ? 'Update' : 'New' }} Project</h3>
+                    <h2 class="font-bold text-gray-800">{{ $updating ? 'Update' : 'New' }} Project</h2>
 
                     <form wire:submit.prevent="submit" class="flex flex-col gap-y-6">
                         <div>

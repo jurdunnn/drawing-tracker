@@ -3,14 +3,18 @@
 
     <x-view-wrapper>
         <x-view-contents :item="$project" :closeRoute="route('projects.index')">
-            <x-item-list name="All" :items="$project->drawings"></x-item-list>
+            @if ($project->drawings->count() > 0)
+                <x-item-list name="All" :items="$project->drawings"></x-item-list>
 
-            @if ($project->drawings->first())
-                @foreach ($project->drawings->first()->tag->getAvailableTags() as $tag)
-                    @if ($project->taggedDrawings($tag))
-                        <x-item-list name="{{ $tag->name }}" :tag="$tag" :items="$project->taggedDrawings($tag)"></x-item-list>
-                    @endif
-                @endforeach
+                @if ($project->drawings->first())
+                    @foreach ($project->drawings->first()->tag->getAvailableTags() as $tag)
+                        @if ($project->taggedDrawings($tag))
+                            <x-item-list name="{{ $tag->name }}" :tag="$tag" :items="$project->taggedDrawings($tag)"></x-item-list>
+                        @endif
+                    @endforeach
+                @endif
+            @else
+                <p class="py-4 text-center">This project has no drawings.</p>
             @endif
         </x-view-contents>
 

@@ -6,7 +6,7 @@
 
 <div>
     <div class="flex justify-between border-b-2" x-data="{ showItemListOptions: false }" x-on:click.away="showItemListOptions = false">
-        <h3 class="text-2xl font-bold text-gray-700">{{ $name }}</h3>
+        <h2 class="font-bold text-gray-700">{{ $name }}</h2>
 
         @if ($tag)
             <div class="relative flex justify-end w-1/3">
@@ -24,19 +24,11 @@
         @endif
     </div>
 
-    <ul class="flex flex-col gap-y-8">
+    <ul class="flex flex-col gap-y-2">
         @foreach($items as $item)
             <li class="flex flex-col justify-between h-full pt-2 md:flex-row">
                 <div class="flex gap-x-2 md:gap-x-4">
-                    <!-- Check box -->
-                    <div class="flex w-8 h-8 px-4 text-3xl font-bold bg-{{ $item->project->color->name }}-500 rounded-full shadow-2xl cursor-pointer slow-hover hover:scale-110 hover:bg-{{ $item->project->color->name }}-600">
-                        <span class="-ml-2 text-[1rem] text-white">
-                            <i class="fa-solid fa-check"></i>
-                        </span>
-                    </div>
-
-                    <!-- Drawing Description -->
-                    <p class="leading-[2rem]">{{ $item->name }}</p>
+                    <p class="leading-[1.25rem]">{{ $item->name }}</p>
                 </div>
 
                 <x-tag-button :item="$item" onclick="setDrawingTag" :livewire="true"/>
