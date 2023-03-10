@@ -1,4 +1,4 @@
-<div class="flex flex-col w-full p-1 text-gray-400 md:p-32 gap-y-8">
+<div class="flex flex-col w-full p-1 text-gray-400 md:p-32 gap-y-8" x-show="fullscreen == 'false'" x-cloak>
     <div>
         <h1 class="text-4xl font-bold text-white">Hi {{ Auth::user()->name ?? ''  }}</h1>
         <h3>Welcome back to the workspace, we missed you!</h3>
