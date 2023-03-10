@@ -1,6 +1,7 @@
 @props([
     'link',
     'theme' => 'primary',
+    'onclick' => '',
     'icon' => null,
     'iconColor' => null,
     'iconType' => 'solid',
@@ -20,6 +21,7 @@
     ])->merge([
         'href' => $link ?? null,
         'type' => $type,
+        'onclick' => $onclick,
     ])
 }}
     >

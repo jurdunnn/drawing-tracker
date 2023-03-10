@@ -5,9 +5,11 @@
 
 <div class="flex flex-col h-full">
     <div class="bg-{{ $item->color->name }}-500 rounded-t-2xl text-white">
-        <div class="flex justify-end w-full px-10 pt-4">
+        <div class="flex justify-end w-full px-10 pt-4 gap-x-5">
+            <x-fullscreen-button />
+
             <x-button 
-                    :link="$closeRoute" 
+                    :link="$closeRoute"
                     icon="fa-xmark fa-2xl" 
                     buttonClasses="max-w-content hover:scale-110 slow-hover"
                     theme="none"

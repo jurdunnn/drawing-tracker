@@ -19,9 +19,20 @@
 
         @livewireStyles
     </head>
-    <body class="antialiased min-h-screen bg-[#0F102B]">
+    <body class="antialiased min-h-screen bg-[#0F102B]" x-data="globalData()">
         {{ $slot }}
 
         @livewireScripts
     </body>
+
+    <script>
+        const globalData = () => {
+            return {
+                'fullscreen': 'false',
+                init() {
+                    this.fullscreen = localStorage.fullscreen;
+                },
+            }
+        }
+    </script>
 </html>
