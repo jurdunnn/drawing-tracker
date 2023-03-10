@@ -22,6 +22,8 @@
     <body class="antialiased min-h-screen bg-[#0F102B]" x-data="globalData()">
         {{ $slot }}
 
+        <script src="https://unpkg.com/popper.js@1"></script>
+        <script src="https://unpkg.com/tippy.js@5"></script>
         @livewireScripts
     </body>
 
@@ -35,6 +37,8 @@
                     } 
 
                     this.fullscreen = localStorage.fullscreen;
+
+                    tippy('[data-tippy-content]');
                 },
             }
         }

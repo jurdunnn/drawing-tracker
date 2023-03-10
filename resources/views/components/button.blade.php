@@ -7,7 +7,8 @@
     'iconType' => 'solid',
     'type' => null,
     'buttonClasses' => 'ml-auto mr-auto px-4 py-3 my-2 font-bold rounded-full text-center',
-    'buttonTag' => 'a'
+    'buttonTag' => 'a',
+    'tooltip' => null
 ])
 
 <{{ $buttonTag }} {{
@@ -22,6 +23,7 @@
         'href' => $link ?? null,
         'type' => $type,
         'onclick' => $onclick,
+        'data-tippy-content' => $tooltip
     ])
 }}
     >

@@ -17,6 +17,9 @@
         <a 
             x-show="showProjectOptions"
             x-cloak
+            @if (isset($button['tooltip']))
+                data-tippy-content="{{ $button['tooltip'] }}"
+            @endif
             x-transition.duration.200ms
             href="{{ $button['link'] }}" 
             class="flex flex-col cursor-pointer max-w-content gap-y-2 slow-hover hover:scale-105"

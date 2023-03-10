@@ -32,16 +32,19 @@
                     'link' => '#',
                     'icon' => 'trash',
                     'buttonColor' => 'red-500',
+                    'tooltip' => 'Delete Project'
                 ],
                 [
                     'link' => $project->editRoute(),
                     'icon' => 'pencil',
                     'buttonColor' =>  $buttonColor,
+                    'tooltip' => 'Edit Project'
                 ],
                 [
                     'link' => route('projects.drawings.create', ['project' => $this->project->id]),
                     'icon' => 'plus',
                     'buttonColor' => $buttonColor,
+                    'tooltip' => 'Create Project'
                 ],
             ];
         @endphp
