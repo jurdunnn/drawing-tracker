@@ -30,6 +30,10 @@
             return {
                 'fullscreen': 'false',
                 init() {
+                    if (window.location.pathname === '/projects') {
+                        localStorage.fullscreen = 'false';
+                    } 
+
                     this.fullscreen = localStorage.fullscreen;
                 },
             }
