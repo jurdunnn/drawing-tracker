@@ -1,9 +1,4 @@
-<div 
-    class="w-full max-h-[100vh] h-screen p-4 grid gap-4" 
-    :class="fullscreen == 'true' ? 'grid-cols-1 md:grid-cols-1' : 'grid-cols-1 md:grid-cols-2'" 
-    wire:poll.500ms
-    x-cloak
-    >
+<x-split-project-drawing-view> 
     <livewire:projects />
 
     <x-view-wrapper>
@@ -20,7 +15,12 @@
                 @endif
             @else
                 <p class="pt-4 text-center">This project has no drawings.</p>
-                <a class="font-bold text-center text-{{ $project->color->name }}-500 hover:underline px-12 mx-auto" href="{{ route('projects.drawings.create', ['project' => $this->project->id]) }}">Add a drawing</a>
+                <a 
+                    class="font-bold text-center text-{{ $project->color->name }}-500 hover:underline px-12 mx-auto" 
+                    href="{{ route('projects.drawings.create', ['project' => $this->project->id]) }}"
+                >
+                Add a drawing
+                </a>
             @endif
         </x-view-contents>
 
@@ -51,4 +51,4 @@
 
         <x-toolbelt :buttons="$buttons" :color="$buttonColor"/>
     </x-view-wrapper>
-</div>
+</x-split-project-drawing-view>
