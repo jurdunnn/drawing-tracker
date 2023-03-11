@@ -1,4 +1,4 @@
-<a onclick="toggleFullscreen()" class="pt-1 cursor-pointer max-w-content hover:scale-110 slow-hover">
+<a x-on:click="fullscreen = fullscreen == 'true' ? 'false' : 'true'" class="pt-1 cursor-pointer max-w-content hover:scale-110 slow-hover">
     <span class="">
         <i 
             class="fa-solid fa-xl"

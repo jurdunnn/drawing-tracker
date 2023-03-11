@@ -36,7 +36,9 @@
                         localStorage.fullscreen = 'false';
                     } 
 
-                    this.fullscreen = localStorage.fullscreen;
+                    this.fullscreen = localStorage.fullscreen ?? false;
+
+                    this.$watch('fullscreen', (val) => localStorage.fullscreen = val);
 
                     tippy('[data-tippy-content]');
                 },
