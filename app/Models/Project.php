@@ -58,6 +58,7 @@ class Project extends Model
 
     public function showRoute()
     {
+        if (!$this->id) return false;
         return route('projects.drawings.index', ['project' => $this->id]);
     }
 
