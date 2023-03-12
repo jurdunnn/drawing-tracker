@@ -34,6 +34,7 @@
 
     <a 
         x-on:click="showProjectOptions = !showProjectOptions"
+        data-tippy-content="Toolbelt"
         class="flex flex-col mx-2 cursor-pointer max-w-content gap-y-2 slow-hover hover:scale-105"
     >
         <div class="flex items-center justify-center w-16 h-16 ml-auto mr-auto text-3xl font-bold text-white bg-{{ $color }} shadow-2xl rounded-2xl">
