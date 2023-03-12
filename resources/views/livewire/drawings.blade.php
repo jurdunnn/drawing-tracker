@@ -44,7 +44,7 @@
                     'link' => route('projects.drawings.create', ['project' => $this->project->id]),
                     'icon' => 'plus',
                     'buttonColor' => $buttonColor,
-                    'tooltip' => 'Create Project'
+                    'tooltip' => 'Create Drawing'
                 ],
             ];
         @endphp
