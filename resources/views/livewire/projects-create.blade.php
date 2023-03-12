@@ -2,11 +2,13 @@
     <livewire:projects />
 
     <x-view-wrapper>
-        <x-view-contents :item="$project ? $project : null" closeRoute="{{ $project->showRoute() ?? $project->indexRoute() }}">
+        <x-view-contents 
+                :title="$project->name ? 'Update ' . $project->name : 'New Project'" 
+                :description="$updating ? '' : null"
+                :item="$project ? $project : null" closeRoute="{{ $project->showRoute() ?? $project->indexRoute() }}"
+            >
             <div class="flex flex-col px-2 mt-4 md:px-12 gap-y-24">
                 <div class="flex flex-col gap-y-6">
-                    <h2 class="font-bold text-gray-800">{{ $updating ? 'Update' : 'New' }} Project</h2>
-
                     <form wire:submit.prevent="submit" class="flex flex-col gap-y-6">
                         <div>
                             <label for="name">Project Name</label>
