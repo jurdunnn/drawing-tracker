@@ -38,7 +38,7 @@
                         @if($project->showTags->count() > 0)
                             <div class="flex flex-col gap-y-1">
                                 <label>Hidden Tags</label>
-                                <ul class="grid grid-cols-4 gap-x-2">
+                                <ul class="flex flex-wrap gap-2">
                                     @foreach ($project->showTags as $showTag)
                                         <li 
                                             wire:click="deleteShowTag({{ $showTag }})"
