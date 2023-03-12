@@ -13,7 +13,7 @@
             <ul class="flex flex-col gap-y-2">
                 @foreach ($item->tag->getAvailableTags() as $tag)
                     <li 
-                        class="flex items-center w-32 font-bold text-center text-white bg-{{ $tag->color->name }}-500 rounded-full cursor-pointer slow-hover hover:scale-105"
+                        class="flex shadow-xl items-center w-32 font-bold text-center text-white bg-{{ $tag->color->name }}-500 rounded-full cursor-pointer slow-hover hover:scale-105"
                         @if ($livewire)
                             wire:click="{{ $onclick }}({{$item->id}}, {{$tag->id}})"
                         @else
