@@ -35,6 +35,24 @@
                             </div>
                         </div>
 
+                        @if($project->showTags->count() > 0)
+                            <div class="flex flex-col gap-y-1">
+                                <label>Hidden Tags</label>
+                                <ul class="grid grid-cols-4 gap-x-2">
+                                    @foreach ($project->showTags as $showTag)
+                                        <li 
+                                            wire:click="deleteShowTag({{ $showTag }})"
+                                            class="relative flex group items-center flex-row justify-center w-32 font-bold text-center text-white bg-{{ $showTag->tag->color->name }}-500 rounded-full cursor-pointer slow-hover hover:scale-105">
+                                            <span class="absolute z-10 hidden -top-[1px] left-2 group-hover:block">
+                                                <i class="fa-solid fa-xmark"></i>
+                                            </span>
+                                            <p>{{ $showTag->tag->name }}</p>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                         <button 
                             type="submit" 
                             class="@if($project->color) bg-{{ $project->color->name }}-500 @endif w-1/3 p-4 mt-12 ml-auto mr-auto font-bold text-gray-100 bg-[#434458] slow-hover hover:scale-105 rounded-2xl">

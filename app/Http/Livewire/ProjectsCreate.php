@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Color;
 use App\Models\Project;
+use App\Models\ProjectShowTag;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -42,6 +43,11 @@ class ProjectsCreate extends Component
         }
 
         $this->project->color_id = Color::where('name', $color)->first()->id;
+    }
+
+    public function deleteShowTag(ProjectShowTag $showTag)
+    {
+        $showTag->delete();
     }
 
     public function delete()
