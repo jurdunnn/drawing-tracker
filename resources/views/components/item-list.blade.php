@@ -26,12 +26,23 @@
 
     <ul class="flex flex-col gap-y-2">
         @foreach($items as $item)
-            <li class="flex flex-col justify-between h-full pt-2 md:flex-row">
-                <div class="flex gap-x-2 md:gap-x-4">
-                    <p class="leading-[1.25rem]">{{ $item->name }}</p>
-                </div>
+            <li class="flex flex-col justify-between h-full px-4 py-2 cursor-pointer hover:scale-105 hover:bg-gray-200 rounded-md md:flex-row">
+                <a href="{{ $item->showRoute() }}" class="flex gap-x-4">
+                    <div class="flex text-white select-none font-bold items-center justify-center w-10 h-10 bg-{{ $item->project->color->name }}-500 rounded-full">
+                        <p class="text-lg">{{ $item->abbreviated_name }}</p>
+                    </div>
+                    <div class="flex flex-col">
+                        <h4 class="font-bold">{{ $item->name }}</h4>
+                        <p class="text-xs">{{ $item->file_path }}</p>
+                    </div>
+                </a>
 
-                <x-tag-button :item="$item" onclick="setDrawingTag" :livewire="true"/>
+                <div class="flex flex-col">
+                    <x-tag-button :item="$item" onclick="setDrawingTag" :livewire="true"/>
+                    @if ($item->due_date)
+                        <p class="mt-2 text-xs">Due: {{ $item->due_date }}</p>
+                    @endif
+                </div>
             </li>
         @endforeach
     </ul>

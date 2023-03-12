@@ -31,4 +31,22 @@ class Drawing extends Model
     {
         return $this->belongsTo(Project::class);
     }
+
+    public function showRoute()
+    {
+        return route('projects.drawings.edit', ['project' => $this->project->id, 'drawing' => $this->id]);
+    }
+
+    public function getAbbreviatedNameAttribute()
+    {
+        $wordsInName = explode(' ', $this->name);
+
+        $acronym = '';
+
+        foreach ($wordsInName as $word) {
+            $acronym .= mb_substr($word, 0, 1);
+        }
+
+        return $acronym;
+    }
 }
