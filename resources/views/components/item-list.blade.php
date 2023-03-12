@@ -40,7 +40,7 @@
                 <div class="z-10 flex flex-col">
                     <x-tag-button :item="$item" onclick="setDrawingTag" :livewire="true"/>
                     @if ($item->due_date)
-                        <p class="mt-2 text-xs">Due: {{ $item->due_date }}</p>
+                        <p class="mt-2 text-xs">Due: {{ $item->formatted_due_date }}</p>
                     @endif
                 </div>
             </li>

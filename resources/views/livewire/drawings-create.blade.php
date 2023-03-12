@@ -3,7 +3,7 @@
 
     <x-view-wrapper>
         <x-view-contents :item="$project" :backRoute="$project->showRoute()" :closeRoute="$project->indexRoute()">
-            <div class="flex flex-col px-2 mt-4 md:px-12 gap-y-24">
+            <div class="flex flex-col px-2 mt-4 md:px-8 gap-y-24">
                 <div class="flex flex-col gap-y-6">
                     <form wire:submit.prevent="submit" class="flex flex-col gap-y-6">
                         <div>
@@ -33,12 +33,12 @@
 
                         <div>
                             <label for="Due Date">Due date</label>
-                            <x-input model="drawing.due_date" type="text" name="Due Date" class="w-full"/>
+                            <x-input model="drawing.due_date" type="date" name="Due Date" class="w-full"/>
                         </div>
 
                         <div>
                             <label for="Start Date">Start Date</label>
-                            <x-input model="drawing.start_date" type="text" name="Start Date" class="w-full"/>
+                            <x-input model="drawing.start_date" type="date" name="Start Date" class="w-full"/>
                         </div>
 
                         <div>

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,6 +12,8 @@ class Drawing extends Model
 
     protected $casts = [
         'done' => 'boolean',
+        'start_date' => 'date:Y-m-d',
+        'due_date' => 'date:Y-m-d'
     ];
 
     protected $fillable = [
@@ -35,6 +38,21 @@ class Drawing extends Model
     public function showRoute()
     {
         return route('projects.drawings.edit', ['project' => $this->project->id, 'drawing' => $this->id]);
+    }
+
+    public function getFormattedStartDateAttribute()
+    {
+        return $this->formatDate($this->start_date);
+    }
+
+    public function getFormattedDueDateAttribute()
+    {
+        return $this->formatDate($this->due_date);
+    }
+
+    public function formatDate($date)
+    {
+        return Carbon::parse($date)->toFormattedDateString();
     }
 
     public function getAbbreviatedNameAttribute()
