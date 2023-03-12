@@ -4,7 +4,7 @@
     <x-view-wrapper>
         <x-view-contents :item="$project" :closeRoute="route('projects.index')">
             @if ($project->drawings->count() > 0)
-                <x-item-list name="All" :items="$project->drawings"></x-item-list>
+                <x-item-list name="All Drawings" :items="$project->drawings"></x-item-list>
 
                 @if ($project->drawings->first())
                     @foreach ($project->drawings->first()->tag->getAvailableTags() as $tag)

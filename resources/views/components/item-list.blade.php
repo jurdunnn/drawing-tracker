@@ -5,8 +5,8 @@
 ])
 
 <div>
-    <div class="flex justify-between border-b-2" x-data="{ showItemListOptions: false }" x-on:click.away="showItemListOptions = false">
-        <h2 class="font-bold text-gray-700">{{ $name }}</h2>
+    <div class="flex justify-between pb-2" x-data="{ showItemListOptions: false }" x-on:click.away="showItemListOptions = false">
+        <h3 class="font-bold text-gray-600">{{ $name }}</h3>
 
         @if ($tag)
             <div class="relative flex justify-end w-1/3">
