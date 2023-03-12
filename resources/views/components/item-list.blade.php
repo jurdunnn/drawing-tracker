@@ -26,8 +26,8 @@
 
     <ul class="flex flex-col gap-y-2">
         @foreach($items as $item)
-            <li class="flex flex-col justify-between h-full px-4 py-2 cursor-pointer hover:scale-105 hover:bg-gray-200 rounded-md md:flex-row">
-                <a href="{{ $item->showRoute() }}" class="flex gap-x-4">
+            <li class="flex flex-col justify-between h-full px-4 py-2 hover:scale-[101%] hover:bg-gray-200 rounded-md md:flex-row">
+                <a href="{{ $item->showRoute() }}" class="flex cursor-pointer gap-x-4">
                     <div class="flex text-white select-none font-bold items-center justify-center w-10 h-10 bg-{{ $item->project->color->name }}-500 rounded-full">
                         <p class="text-lg">{{ $item->abbreviated_name }}</p>
                     </div>
