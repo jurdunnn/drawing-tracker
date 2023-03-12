@@ -2,7 +2,7 @@
     <livewire:projects />
 
     <x-view-wrapper>
-        <x-view-contents :item="$project" closeRoute="{{ $project->showRoute() }}">
+        <x-view-contents :item="$project" :backRoute="$project->showRoute()" :closeRoute="$project->indexRoute()">
             <div class="flex flex-col px-2 mt-4 md:px-12 gap-y-24">
                 <div class="flex flex-col gap-y-6">
                     <form wire:submit.prevent="submit" class="flex flex-col gap-y-6">
