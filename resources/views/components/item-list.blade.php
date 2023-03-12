@@ -5,16 +5,16 @@
 ])
 
 <div>
-    <div class="flex justify-between pb-2" x-data="{ showItemListOptions: false }" x-on:click.away="showItemListOptions = false">
+    <div class="z-30 flex justify-between pb-2" x-data="{ showItemListOptions: false }" x-on:click.away="showItemListOptions = false">
         <h3 class="font-bold text-gray-600">{{ $name }}</h3>
 
         @if ($tag)
-            <div class="relative flex justify-end w-1/3">
+            <div class="relative z-20 flex justify-end w-1/3">
                 <button style="none" x-on:click="showItemListOptions = !showItemListOptions" class="relative pt-2 text-gray-600 slow-hover hover:scale-110">
                     <i class="fa-solid fa-ellipsis fa-2xl"></i>
                 </button>
 
-                <div x-show="showItemListOptions" class="absolute top-0 z-10 w-1/2 p-4 text-center bg-gray-100 shadow-xl left-12 rounded-2xl">
+                <div x-show="showItemListOptions" class="absolute top-0 z-20 p-4 text-center bg-gray-100 shadow-2xl right-9 rounded-2xl">
                     <button class="hover:font-bold" wire:click="hideProjectTag({{ $tag->id }})">
                         <i class="fa-regular fa-eye-slash"></i>
                         Hide
@@ -37,7 +37,7 @@
                     </div>
                 </a>
 
-                <div class="flex flex-col">
+                <div class="z-10 flex flex-col">
                     <x-tag-button :item="$item" onclick="setDrawingTag" :livewire="true"/>
                     @if ($item->due_date)
                         <p class="mt-2 text-xs">Due: {{ $item->due_date }}</p>
