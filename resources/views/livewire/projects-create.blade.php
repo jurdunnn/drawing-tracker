@@ -5,7 +5,9 @@
         <x-view-contents 
                 :title="$project->name ? 'Update ' . $project->name : 'New Project'" 
                 :description="$updating ? '' : null"
-                :item="$project ? $project : null" closeRoute="{{ $project->showRoute() ?? $project->indexRoute() }}"
+                :item="$project ? $project : null" 
+                :closeRoute="$project->indexRoute()"
+                :backRoute="$project->showRoute()"
             >
             <div class="flex flex-col px-2 mt-4 md:px-12 gap-y-24">
                 <div class="flex flex-col gap-y-6">
