@@ -11,6 +11,6 @@
     ]) }}
 />
 
-@if ($errors->has($name))
-    <p class="font-bold text-red-500">{{ $errors->first($name) }}</p>
+@if ($errors->has($model))
+    <p class="font-bold text-red-500">{{ $errors->first($model) }}</p>
 @endif

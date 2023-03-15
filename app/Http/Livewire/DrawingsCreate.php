@@ -6,9 +6,12 @@ use App\Models\Drawing;
 use App\Models\Project;
 use App\Models\Tag;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class DrawingsCreate extends Component
 {
+    use WithFileUploads;
+
     public Project $project;
     public ?Drawing $drawing;
     public $updating;
@@ -17,9 +20,13 @@ class DrawingsCreate extends Component
         'drawing.done' => 'boolean|required',
         'drawing.tag_id' => 'int|required',
         'drawing.name' => 'string|required',
-        'drawing.file_path' => 'string|nullable',
+        'drawing.file_path' => 'string|required',
         'drawing.due_date' => 'string|nullable',
         'drawing.start_date' => 'string|nullable',
+    ];
+
+    protected $messages = [
+        'drawing.file_path' => "A drawing must be uploaded",
     ];
 
     public function mount(Project $project, ?Drawing $drawing)
