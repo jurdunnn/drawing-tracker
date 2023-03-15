@@ -7,6 +7,7 @@
 
         @vite('resources/css/app.css')
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.11.1/dist/cdn.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
 
         <link href="{{ asset('fontawesome/css/fontawesome.css') }}" rel="stylesheet">
         <link href="{{ asset('fontawesome/css/brands.css') }}" rel="stylesheet">
@@ -25,6 +26,7 @@
         <script src="https://unpkg.com/popper.js@1"></script>
         <script src="https://unpkg.com/tippy.js@5"></script>
         @livewireScripts
+        <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
     </body>
 
     <script>
