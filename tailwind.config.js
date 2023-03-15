@@ -4,7 +4,6 @@ module.exports = {
     "./resources/**/*.blade.php",
     "./resources/**/*.js",
     "./resources/**/*.vue",
-    "./node_modules/flowbite/**/*.js",
   ],
   safelist: [
     {
@@ -15,7 +14,4 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [
-      require('flowbite/plugin'),
-  ],
 }
