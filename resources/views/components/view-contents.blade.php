@@ -39,7 +39,7 @@
         </div>
     </div>
 
-    <div class="flex flex-col max-h-[75vh] pb-32 pt-4 overflow-y-scroll no-scrollbar gap-y-4 md:px-8">
+    <div class="flex flex-col max-h-[75vh] pb-32 pt-4 overflow-y-scroll no-scrollbar gap-y-12 md:px-8">
         {{ $slot }}
     </div>
 </div>
