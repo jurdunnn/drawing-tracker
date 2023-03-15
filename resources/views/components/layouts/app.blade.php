@@ -22,8 +22,8 @@
     <body class="antialiased min-h-screen bg-[#0F102B]" x-data="globalData()">
         {{ $slot }}
 
-        <script src="https://unpkg.com/popper.js@1"></script>
-        <script src="https://unpkg.com/tippy.js@5"></script>
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
         @livewireScripts
     </body>
 

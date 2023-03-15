@@ -7,7 +7,7 @@
 ])
 
 <div class="flex flex-col h-full">
-    <div class="@if($item->color) bg-{{ $item->color->name }}-500 @endif bg-[#434458] rounded-t-2xl text-white">
+    <div class="@if($item->color) bg-{{ $item->color->name }}-500 @else bg-[#434458] @endif rounded-t-2xl text-white">
         <div class="flex @if($backRoute) justify-between @else justify-end @endif w-full px-10 pt-4">
             @if($backRoute)
                 <x-button 

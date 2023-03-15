@@ -7,10 +7,10 @@ module.exports = {
     "./node_modules/flowbite/**/*.js",
   ],
   safelist: [
-    {
-      pattern: /(bg|text)-(gray|red|green|blue|yellow|orange|purple|teal)-(500|600)/,
-      pattern: /checked:bg-(gray|red|green|blue|yellow|orange|purple|teal)-(500|600)/,
-    },
+      {
+          pattern: /text-(gray|red|green|blue|yellow|orange|purple|teal)-(500|600)/,
+          pattern: /bg-(gray|red|green|blue|yellow|orange|purple|teal)-(500|600)/,
+      }
   ],
   theme: {
     extend: {},
