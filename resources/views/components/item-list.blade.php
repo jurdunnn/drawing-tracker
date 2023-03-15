@@ -6,8 +6,6 @@
 
 <div>
     <div class="z-30 flex justify-between pb-2" x-data="{ showItemListOptions: false }" x-on:click.away="showItemListOptions = false">
-        <h3 class="font-bold text-gray-600">{{ $name }}</h3>
-
         @if ($tag)
             <div class="relative z-20 flex justify-end w-1/3">
                 <button style="none" x-on:click="showItemListOptions = !showItemListOptions" class="relative pt-2 text-gray-600 slow-hover hover:scale-110">

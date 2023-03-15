@@ -26,4 +26,9 @@ class Tag extends Model
             ->orWhere('user_id', null)
             ->get();
     }
+
+    public function getHyphenatedNameAttribute()
+    {
+        return strtolower(str_replace(' ', '-', $this->name));
+    }
 }
