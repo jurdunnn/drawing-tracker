@@ -55,7 +55,7 @@
 
                         <button 
                             type="submit" 
-                            class="@if($project->color) bg-{{ $project->color->name }}-500 @endif w-1/3 p-4 mt-12 ml-auto mr-auto font-bold text-gray-100 bg-[#434458] slow-hover hover:scale-105 rounded-2xl">
+                            class="@if($project->color) bg-{{ $project->color->name }}-500 @else bg-[#434458] @endif w-1/3 p-4 mt-12 ml-auto mr-auto font-bold text-gray-100 slow-hover hover:scale-105 rounded-2xl">
                             {{ $updating ? 'Update' : 'Create' }}
                         </button>
 
