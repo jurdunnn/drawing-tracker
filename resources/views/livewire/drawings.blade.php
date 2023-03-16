@@ -4,6 +4,9 @@
     <x-view-wrapper>
         <x-view-contents :item="$project" :closeRoute="route('projects.index')">
             @if ($project->drawings->count() > 0)
+                <x-drawings-tabs :items="$project->drawings->first()->tag->getAvailableTags()">
+
+                </x-drawings-tabs>
                 <x-item-list name="All Drawings" :items="$project->drawings"></x-item-list>
 
                 @if ($project->drawings->first())

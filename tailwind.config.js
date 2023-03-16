@@ -6,10 +6,16 @@ module.exports = {
     ],
     safelist: [
         {
-            pattern: /text-(gray|red|green|blue|yellow|orange|purple|teal)-(500|600)/,
             pattern: /bg-(gray|red|green|blue|yellow|orange|purple|teal)-(500|600)/,
+            variants: ['hover'],
+        },
+        {
+            pattern: /text-(gray|red|green|blue|yellow|orange|purple|teal)-(500|600)/,
+            variants: ['hover'],
+        },
+        {
             pattern: /bg-primary-dark/,
-        }
+        },
     ],
     theme: {
         extend: {
