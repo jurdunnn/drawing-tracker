@@ -53,18 +53,14 @@
                             </div>
                         @endif
 
-                        <button 
-                            type="submit" 
-                            class="@if($project->color) bg-{{ $project->color->name }}-500 @else bg-[#434458] @endif w-1/3 p-4 mt-12 ml-auto mr-auto font-bold text-gray-100 slow-hover hover:scale-105 rounded-2xl">
+                        <x-button type="submit" buttonColor="bg-{{ $project->color ? $project->color->name . '-500'  : 'primary-dark' }} text-white"  buttonTag="button" theme="primary">
                             {{ $updating ? 'Update' : 'Create' }}
-                        </button>
+                        </x-button>
 
                         @if ($updating)
-                            <button 
-                                wire:click="delete"
-                                class="w-1/3 p-4 ml-auto mr-auto font-bold text-red-500 underline slow-hover hover:scale-105">
+                            <x-button wire="delete" theme="danger">
                                 Delete Project 
-                            </button>
+                            </x-button>
                         @endif
                     </form>
                 </div>

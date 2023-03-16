@@ -11,7 +11,7 @@
                         type="email" 
                         name="email" 
                         placeholder="Email" 
-                        class="bg-[#434458] font-bold uppercase text-gray-100 p-4 rounded-xl @if($errors->has('email')) ring-2 ring-red-500 @endif"
+                        class="bg-primary-dark font-bold uppercase text-gray-100 p-4 rounded-xl @if($errors->has('email')) ring-2 ring-red-500 @endif"
                     >
 
                     @if ($errors->has('email'))
@@ -22,7 +22,7 @@
                         type="password" 
                         name="password" 
                         placeholder="Password" 
-                        class="bg-[#434458] font-bold uppercase text-gray-100 p-4 rounded-xl @if($errors->has('password')) ring-2 ring-red-500 @endif"
+                        class="bg-primary-dark font-bold uppercase text-gray-100 p-4 rounded-xl @if($errors->has('password')) ring-2 ring-red-500 @endif"
                     >
 
                     @if ($errors->has('password'))

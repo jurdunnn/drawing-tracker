@@ -19,7 +19,7 @@
 
         @livewireStyles
     </head>
-    <body class="antialiased min-h-screen bg-[#0F102B]" x-data="globalData()">
+    <body class="min-h-screen antialiased bg-primary-main" x-data="globalData()">
         {{ $slot }}
 
         <script src="https://unpkg.com/@popperjs/core@2"></script>
