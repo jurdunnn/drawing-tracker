@@ -1,7 +1,7 @@
-@props(['type', 'name' => '', 'model' => '',])
+@props(['type', 'name' => '', 'model' => '', 'inputTag' => 'input',])
 
-<input {{ $attributes->class([
-        "bg-primary-dark font-bold uppercase text-gray-100 p-4 rounded-xl",
+<{{ $inputTag }} {{ $attributes->class([
+        "bg-primary-dark font-bold text-gray-100 p-3 rounded-xl",
         "ring-2 ring-red-500" => $errors->has($name),
     ])->merge([
         'placeholder' => $name,
@@ -9,7 +9,8 @@
         'type' => $type,
         'wire:model' => $model,
     ]) }}
-/>
+>
+</{{ $inputTag }}>
 
 @if ($errors->has($model))
     <p class="font-bold text-red-500">{{ $errors->first($model) }}</p>

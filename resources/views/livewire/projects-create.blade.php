@@ -14,12 +14,12 @@
                     <form wire:submit.prevent="submit" class="flex flex-col gap-y-6">
                         <div>
                             <label for="name">Project Name</label>
-                            <x-input model="project.name" type="text" name="name" class="w-full"/>
+                            <x-input model="project.name" type="text" name="Name" class="w-full"/>
                         </div>
 
                         <div>
                             <label for="description">Project Description</label>
-                            <x-input model="project.description" type="text" name="description" class="w-full"/>
+                            <x-input model="project.description" type="text" inputTag="textarea" rows="6" name="Description" class="w-full"/>
                         </div>
 
                         <div>

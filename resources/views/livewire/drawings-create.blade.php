@@ -8,7 +8,7 @@
                     <form wire:submit.prevent="submit" class="flex flex-col gap-y-6">
                         <div>
                             <label for="name">Drawing Name</label>
-                            <x-input model="drawing.name" type="text" name="name" class="w-full"/>
+                            <x-input model="drawing.name" type="text" name="Name" class="w-full"/>
                         </div>
 
                         <div>
