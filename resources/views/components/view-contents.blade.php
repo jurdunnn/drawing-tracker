@@ -6,7 +6,7 @@
     'description' => null,
 ])
 
-<div class="flex flex-col h-full" wire:poll.keep-alive>
+<div class="flex flex-col h-full" wire:poll.500ms>
     <div class="@if($item->color) bg-{{ $item->color->name }}-500 @else bg-primary-dark @endif rounded-t-2xl text-white">
         <div class="flex @if($backRoute) justify-between @else justify-end @endif w-full px-10 pt-4">
             @if($backRoute)
