@@ -12,9 +12,17 @@ class Drawings extends Component
 {
     public Project $project;
 
+    public Collection $drawings;
+
+    public string $activeTab;
+
     public function mount(Project $project)
     {
+        $this->drawings = $project->drawings;
+
         $this->project = $project;
+
+        $this->activeTab = 'All Drawings';
     }
 
     public function render()
@@ -34,5 +42,18 @@ class Drawings extends Component
         $this->project->showTags()->create([
             'tag_id' => $tag->id,
         ]);
+    }
+
+    public function setActiveTab($tab)
+    {
+        $this->activeTab = $tab;
+
+        $this->drawings = $this->project->drawings->filter(function ($drawing) {
+            if ($this->activeTab === 'All Drawings') {
+                return true;
+            }
+
+            return $drawing->tag->name === $this->activeTab;
+        });
     }
 }

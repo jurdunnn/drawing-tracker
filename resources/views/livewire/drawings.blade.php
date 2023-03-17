@@ -4,21 +4,31 @@
     <x-view-wrapper>
         <x-view-contents :item="$project" :closeRoute="route('projects.index')">
             @if ($project->drawings->count() > 0)
-                <x-drawings-tabs :items="$project->drawings->first()->tag->getAvailableTags()" />
+                <div class="flex flex-row flex-wrap justify-between w-full py-2 gap-x-4">
+                    <button 
+                        @class([
+                            'px-4 py-3 my-2 ml-auto mr-auto font-bold text-center cursor-pointer hover:scale-110 slow-hover rounded-xl hover:bg-gray-500 hover:text-white',
+                            'bg-gray-500 text-white' => $activeTab === 'All Drawings',
+                        ])
+                        wire:click="setActiveTab('All Drawings')"
+                        >
+                        All Drawings
+                    </button>
 
-                <div x-show="activeTab == 'All Drawings'">
-                    <x-item-list name="All Drawings" :items="$project->drawings"></x-item-list>
+                    @foreach ($project->drawings->first()->tag->getAvailableTags() as $tag)
+                        <button 
+                            @class([
+                                "px-4 py-3 my-2 ml-auto mr-auto font-bold text-center cursor-pointer hover:scale-110 slow-hover rounded-xl hover:bg-{$tag->color->name}-500 hover:text-white",
+                                "bg-{$tag->color->name}-500 text-white" => $activeTab === $tag->name,
+                            ])
+                            wire:click="setActiveTab('{{ $tag->name }}')"
+                            >
+                            {{ $tag->name }}
+                        </button>
+                    @endforeach
                 </div>
 
-                @if ($project->drawings->first())
-                    @foreach ($project->drawings->first()->tag->getAvailableTags() as $tag)
-                        @if ($project->taggedDrawings($tag))
-                            <div x-show="activeTab == '{{ $tag->name }}'">
-                                <x-item-list name="{{ $tag->name }}" :tag="$tag" :items="$project->taggedDrawings($tag)"></x-item-list>
-                            </div>
-                        @endif
-                    @endforeach
-                @endif
+                <x-item-list :items="$drawings"/>
             @else
                 <p class="pt-4 text-center">This project has no drawings.</p>
                 <a 

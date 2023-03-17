@@ -1,12 +1,14 @@
 @props([
-    'name',
+    'name' => null,
     'items',
     'tag' => null
 ])
 
 <div>
     <div class="z-30 flex justify-between pb-2" x-data="{ showItemListOptions: false }" x-on:click.away="showItemListOptions = false">
-        <h3 class="font-bold text-gray-600">{{ $name }}</h3>
+        @if ($name)
+            <h3 class="font-bold text-gray-600">{{ $name }}</h3>
+        @endif 
 
         @if ($tag)
             <div class="relative z-20 flex justify-end w-1/3">

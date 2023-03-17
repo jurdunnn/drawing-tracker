@@ -31,17 +31,14 @@
         const globalData = () => {
             return {
                 'fullscreen': 'false',
-                'activeTab': 'All Drawings',
                 init() {
                     if (window.location.pathname === '/projects') {
                         localStorage.fullscreen = 'false';
                     } 
 
                     this.fullscreen = localStorage.fullscreen ?? false;
-                    this.activeTab = localStorage.activeTab ?? 'All Drawings';
 
                     this.$watch('fullscreen', (val) => localStorage.fullscreen = val);
-                    this.$watch('activeTab', (tab) => localStorage.activeTab = tab);
 
                     tippy('[data-tippy-content]');
                 },
