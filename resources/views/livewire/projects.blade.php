@@ -1,4 +1,4 @@
-<div class="flex flex-col w-full p-1 px-0 text-gray-400 sm:py-32 sm:px-24 md:px-2 gap-y-8" x-show="fullscreen == 'false'" x-cloak>
+<div class="flex flex-col w-full p-1 p-8 text-gray-400 sm:py-32 sm:px-24 md:px-12 gap-y-8" x-show="fullscreen == 'false'" x-cloak>
     <div>
         <h1 class="text-4xl font-bold text-white">Hi {{ Auth::user()->name ?? ''  }}</h1>
         <h3>Welcome back to <span class="font-bold">project drawer</span>, we missed you!</h3>
