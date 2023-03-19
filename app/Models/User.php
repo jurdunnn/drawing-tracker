@@ -51,4 +51,17 @@ class User extends Authenticatable
     {
         return $this->hasMany(Tag::class);
     }
+
+    public function getAbbreviatedNameAttribute()
+    {
+        $wordsInName = explode(' ', $this->name);
+
+        $acronym = '';
+
+        foreach ($wordsInName as $word) {
+            $acronym .= mb_substr($word, 0, 1);
+        }
+
+        return $acronym;
+    }
 }
