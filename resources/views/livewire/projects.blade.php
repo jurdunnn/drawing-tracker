@@ -4,7 +4,7 @@
         <h3>Welcome back to <span class="font-bold">project drawer</span>, we missed you!</h3>
     </div>
 
-    <div class="flex text-white bg-primary-dark placeholder:text-gray-400 placeholder:text-sm rounded-2xl">
+    <div class="flex text-white rounded-lg bg-primary-dark placeholder:text-gray-400 placeholder:text-sm">
         <span class="px-5 py-4">
             <i class="fa-solid fa-search"></i>
         </span>
