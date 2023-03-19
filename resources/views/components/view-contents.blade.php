@@ -12,24 +12,24 @@
             @if($backRoute)
                 <x-button 
                         :link="$backRoute"
-                        icon="fa-left-long fa-2xl" 
+                        icon="fa-left-long fa-xl" 
                         buttonClasses="max-w-content hover:scale-110 slow-hover"
                         theme="none"
                     >
-                    <p class="ml-[3px] font-bold text-center">Back</p>
+                    <p class="text-xs font-bold text-center">Back</p>
                 </x-button>
             @endif
 
             <div class="flex gap-x-5">
                 <x-fullscreen-button />
 
-                    <x-button 
-                        :link="$closeRoute"
-                        icon="fa-xmark fa-2xl" 
-                        buttonClasses="max-w-content hover:scale-110 slow-hover"
-                        theme="none"
-                        >
-                    </x-button>
+                <x-button 
+                    :link="$closeRoute"
+                    icon="fa-xmark fa-xl" 
+                    buttonClasses="max-w-content hover:scale-110 slow-hover"
+                    theme="none"
+                    >
+                </x-button>
             </div>
         </div>
 

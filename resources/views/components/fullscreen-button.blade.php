@@ -1,7 +1,7 @@
 <a x-on:click="fullscreen = fullscreen == 'true' ? 'false' : 'true'" class="pt-1 cursor-pointer max-w-content hover:scale-110 slow-hover">
     <span class="">
         <i 
-            class="fa-solid fa-xl"
+            class="fa-solid fa-lg"
             :class="fullscreen === 'true' ? 'fa-down-left-and-up-right-to-center' : 'fa-up-right-and-down-left-from-center'"
         ></i>
     </span>
