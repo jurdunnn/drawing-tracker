@@ -14,6 +14,7 @@
             id="Search" 
             type="text" 
             wire:model.debounce.100ms="search"
+            wire:keydown.enter="redirectToProject({{ $projects->first()->id ?? null }})"
             class="w-full h-full py-4 pr-4 -ml-2 border-transparent outline-none bg-primary-dark rounded-r-2xl forcus:outline-none focus:border-transparent focus:ring-0" 
             />
     </div>

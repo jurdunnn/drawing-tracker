@@ -41,6 +41,10 @@ class Projects extends Component
 
     public function redirectToProject(Project $project)
     {
+        if (!$project->id) {
+            return;
+        }
+
         $project->update([
             'last_opened' => now(),
         ]);
