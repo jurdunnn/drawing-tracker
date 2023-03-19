@@ -15,23 +15,23 @@ class Projects extends Component
 
     public function mount()
     {
-        $this->projects = Auth::user()
-            ->projects
-            ->sortByDesc('last_opened')
-            ->collect();
+        $this->projects = Project::where('user_id', Auth::user()->id)
+            ->orderByDesc('last_opened')
+            ->get();
 
         $this->search = '';
     }
 
     public function updatedSearch($value)
     {
-        $query = Project::where('user_id', Auth::user()->id);
+        $searchQuery = Project::where('user_id', Auth::user()->id)
+            ->orderByDesc('last_opened');
 
         if ($this->search != '') {
-            $query = $query->where('name', 'like', "%{$this->search}%");
+            $searchQuery = $searchQuery->where('name', 'like', "%{$this->search}%");
         }
 
-        $this->projects = $query->get()->sortByDesc('last_opened')->collect();
+        $this->projects = $searchQuery->get();
     }
 
     public function render()
