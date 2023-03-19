@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Drawing;
 use App\Models\Project;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -29,6 +30,10 @@ class Projects extends Component
 
         if ($this->search != '') {
             $searchQuery = $searchQuery->where('name', 'like', "%{$this->search}%");
+
+            $searchQuery = $searchQuery->orWhereHas('drawings', function ($query) {
+                return $query->where('name', 'like', "%{$this->search}%");
+            });
         }
 
         $this->projects = $searchQuery->get();
