@@ -1,40 +1,23 @@
 <x-layouts.app>
     <div class="relative flex justify-center min-h-screen py-4 items-top sm:items-center sm:pt-0">
-        <div class="flex flex-col px-4 xl:1/3">
-            <h2 class="text-white py-4 text-center text-[90px] font-bold title">Project-Drawer</h2>
+        <div class="flex flex-col px-4 xl:w-1/3">
+            <h2 class="text-white select-none text-center text-[90px] font-bold title leading-[6rem]">Project-Drawer</h2>
 
-            <div class="bg-[#23243D] px-6 py-8 shadow-xl rounded-2xl">
+            <div class="bg-[#23243D] mt-6 px-6 py-8 shadow-xl rounded-lg">
                 <form method="POST" action="{{ route('authenticate') }}" class="flex flex-col gap-y-6">
                     @csrf
 
-                    <input 
-                        type="email" 
-                        name="email" 
-                        placeholder="Email" 
-                        class="bg-primary-dark font-bold uppercase text-gray-100 p-4 rounded-xl @if($errors->has('email')) ring-2 ring-red-500 @endif"
-                    >
+                    <x-input type="email" name="email" placeholder="Email Address" />
 
-                    @if ($errors->has('email'))
-                        <p class="font-bold text-red-500">{{ $errors->first('password') }}</p>
-                    @endif
-
-                    <input 
-                        type="password" 
-                        name="password" 
-                        placeholder="Password" 
-                        class="bg-primary-dark font-bold uppercase text-gray-100 p-4 rounded-xl @if($errors->has('password')) ring-2 ring-red-500 @endif"
-                    >
-
-                    @if ($errors->has('password'))
-                        <p class="font-bold text-red-500">{{ $errors->first('password') }}</p>
-                    @endif
-
+                    <x-input type="password" name="password" placeholder="Password" />
 
                     @if ($errors->has('incorrect'))
                         <p class="font-bold text-red-500">{{ $errors->first('incorrect') }}</p>
                     @endif
 
-                    <x-button type="submit" buttonTag="button" icon="pl-1 fa-arrow-right-to-bracket">Log in</x-button>
+                    <x-button type="submit" theme="primary" buttonColor="bg-white"  buttonTag="button" icon="pl-1 fa-arrow-right-to-bracket">
+                        Log in
+                    </x-button>
                 </form>
             </div>
 

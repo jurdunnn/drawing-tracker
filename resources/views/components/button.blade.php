@@ -6,7 +6,7 @@
     'iconColor' => null,
     'iconType' => 'solid',
     'type' => null,
-    'buttonClasses' => 'ml-auto mr-auto px-4 py-3 my-2 hover:scale-110 slow-hover font-bold rounded-xl cursor-pointer text-center',
+    'buttonClasses' => 'ml-auto select-none mr-auto px-4 py-3 my-2 hover:scale-110 slow-hover font-bold rounded-lg cursor-pointer text-center',
     'buttonColor' => '',
     'buttonTag' => 'a',
     'tooltip' => null,
