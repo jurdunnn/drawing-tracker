@@ -1,11 +1,13 @@
 <div x-show="fullscreen == 'false'" x-cloak>
-    <div class="flex justify-end pt-6 sm:px-24 md:px-12" x-show="window.location.pathname === '/projects'">
-        <div class="flex items-center w-12 h-12 rounded-full cursor-pointer bg-primary-dark ring-4 ring-white hover:scale-105">
-            <p class="mx-auto text-2xl font-bold text-center text-white">
-                {{ Auth::user()->getAbbreviatedNameAttribute() }}
-            </p>
+    <template x-if="window.location.pathname === '/projects'">
+        <div class="flex justify-end w-full p-8">
+            <div class="flex items-center w-12 h-12 rounded-full cursor-pointer bg-primary-dark ring-4 ring-white hover:scale-105">
+                <p class="mx-auto text-2xl font-bold text-center text-white">
+                    {{ Auth::user()->getAbbreviatedNameAttribute() }}
+                </p>
+            </div>
         </div>
-    </div>
+    </template>
 
     <div class="flex flex-col w-full p-1 p-8 text-gray-400 sm:py-32 sm:px-24 md:px-12 gap-y-8">
         <div>
