@@ -9,7 +9,7 @@
 
             <div x-show="showUserManagement" class="absolute top-8 right-32" x-cloak x-transition.duration.200ms>
                 <div class="bg-white rounded-lg shadow-2xl">
-                    <ul class="py-1 text-center">
+                    <ul class="py-1 text-center select-none">
                         <li class="px-4 py-2 text-red-500 rounded-t-lg cursor-pointer hover:text-red-600 hover:bg-gray-200">
                             <a x-on:click="modal = 'report_problem'">
                                 Report Problem
@@ -26,7 +26,7 @@
                             </a>
                         </li>
                         <li class="px-4 py-2 rounded-b-lg cursor-pointer hover:bg-gray-200">
-                            <a>
+                            <a href="{{ route('logout') }}">
                                 Logout
                             </a>
                         </li>
