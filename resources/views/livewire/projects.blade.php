@@ -1,4 +1,4 @@
-<div x-show="fullscreen == 'false'" x-cloak x-data="{ showModal: false }">
+<div x-show="fullscreen == 'false'" x-cloak x-data="{ modal: 'hidden' }">
     <template x-if="window.location.pathname === '/projects'">
         <div class="relative flex justify-end w-full px-12 py-4" x-data="{ showUserManagement: false }" x-on:click.away="showUserManagement = false">
             <button x-on:click="showUserManagement = !showUserManagement" class="flex items-center w-12 h-12 text-white rounded-full cursor-pointer bg-primary-dark hover:text-primary-main hover:scale-110 slow-hover">
@@ -11,17 +11,17 @@
                 <div class="bg-white rounded-lg shadow-2xl">
                     <ul class="py-1 text-center">
                         <li class="px-4 py-2 text-red-500 rounded-t-lg cursor-pointer hover:text-red-600 hover:bg-gray-200">
-                            <a x-on:click="showModal = true">
+                            <a x-on:click="modal = 'report_problem'">
                                 Report Problem
                             </a>
                         </li>
                         <li class="px-4 py-2 cursor-pointer hover:bg-gray-200">
-                            <a x-on:click="showModal = true">
+                            <a x-on:click="modal = 'delete_account'">
                                 Delete Account
                             </a>
                         </li>
                         <li class="px-4 py-2 cursor-pointer hover:bg-gray-200">
-                            <a x-on:click="showModal = true">
+                            <a x-on:click="modal = 'change_password'">
                                 Change Password
                             </a>
                         </li>
@@ -36,8 +36,21 @@
         </div>
     </template>
 
-    <template x-if="showModal">
-        <x-modal />
+    <template x-if="modal != 'hidden'">
+        <x-modal closeButton="modal = 'hidden'">
+            <template x-if="modal == 'change_password'">
+                <livewire:change-password />
+            </template>
+
+            <template x-if="modal == 'delete_account'">
+                <livewire:delete-account />
+            </template>
+
+            <template x-if="modal == 'report_problem'">
+                <livewire:report-problem />
+            </template>
+
+        </x-modal>
     </template>
 
     <div class="flex flex-col w-full p-1 p-8 text-gray-400 sm:py-32 sm:px-24 md:px-12 gap-y-8">
