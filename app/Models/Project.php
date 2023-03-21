@@ -2,16 +2,16 @@
 
 namespace App\Models;
 
+use App\Http\Traits\TextHelperTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Log;
-use Symfony\Component\HttpFoundation\Request;
 use Illuminate\Support\Str;
 
 class Project extends Model
 {
     use HasFactory;
+    use TextHelperTrait;
 
     protected $fillable = [
         'last_opened',
@@ -70,18 +70,5 @@ class Project extends Model
     public function isBeingViewed()
     {
         return Str::contains(url()->current(), "projects/{$this->id}/");
-    }
-
-    public function getAbbreviatedNameAttribute()
-    {
-        $wordsInName = explode(' ', $this->name);
-
-        $acronym = '';
-
-        foreach ($wordsInName as $word) {
-            $acronym .= mb_substr($word, 0, 1);
-        }
-
-        return $acronym;
     }
 }

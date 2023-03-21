@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Traits\TextHelperTrait;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -9,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 class Drawing extends Model
 {
     use HasFactory;
+    use TextHelperTrait;
 
     protected $casts = [
         'done' => 'boolean',
@@ -53,18 +55,5 @@ class Drawing extends Model
     public function formatDate($date)
     {
         return Carbon::parse($date)->toFormattedDateString();
-    }
-
-    public function getAbbreviatedNameAttribute()
-    {
-        $wordsInName = explode(' ', $this->name);
-
-        $acronym = '';
-
-        foreach ($wordsInName as $word) {
-            $acronym .= mb_substr($word, 0, 1);
-        }
-
-        return $acronym;
     }
 }
