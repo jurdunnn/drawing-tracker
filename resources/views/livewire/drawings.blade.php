@@ -40,37 +40,11 @@
             @endif
         </x-view-contents>
 
-        @php
-            $buttonColor = "{$project->color->name}-500";
-
-            $buttons = [
-                [
-                    'link' => '#',
-                    'icon' => 'trash',
-                    'buttonColor' => 'red-500',
-                    'tooltip' => 'Delete Project'
-                ],
-                [
-                    'link' => $project->editRoute(),
-                    'icon' => 'pencil',
-                    'buttonColor' =>  $buttonColor,
-                    'tooltip' => 'Edit Project'
-                ],
-                [
-                    'link' => route('projects.drawings.create', ['project' => $this->project->id]),
-                    'icon' => 'plus',
-                    'buttonColor' => $buttonColor,
-                    'tooltip' => 'Create Drawing'
-                ],
-                [
-                    'link' => '#',
-                    'icon' => 'box-archive',
-                    'buttonColor' => $buttonColor,
-                    'tooltip' => 'Completed Drawings'
-                ],
-            ];
-        @endphp
-
-        <x-toolbelt :buttons="$buttons" :color="$buttonColor"/>
+        <x-toolbelt :color="$project->color->name">
+            <x-toolbelt-button icon="trash" color="red" link="#" tooltip="Delete Project" />
+            <x-toolbelt-button icon="pencil" :color="$project->color->name" :link="$project->editRoute()" tooltip="Edit Project" />
+            <x-toolbelt-button icon="plus" :color="$project->color->name" :link="route('projects.drawings.create', ['project' => $this->project->id])" tooltip="Create Drawing" />
+            <x-toolbelt-button icon="box-archive" :color="$project->color->name" link="#" tooltip="Completed Drawings" />
+        </x-toolbelt>
     </x-view-wrapper>
 </x-split-project-drawing-view>
