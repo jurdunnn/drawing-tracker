@@ -62,6 +62,12 @@
                     'buttonColor' => $buttonColor,
                     'tooltip' => 'Create Drawing'
                 ],
+                [
+                    'link' => '#',
+                    'icon' => 'box-archive',
+                    'buttonColor' => $buttonColor,
+                    'tooltip' => 'Completed Drawings'
+                ],
             ];
         @endphp
 
