@@ -8,7 +8,7 @@
             </button>
 
             <template x-if="showUserManagement">
-                <div class="bg-white rounded-lg shadow-2xl absolute top-8 right-32">
+                <div class="absolute bg-white rounded-lg shadow-2xl top-8 right-32">
                     <ul class="py-1 text-center select-none">
                         <li class="px-4 py-2 text-red-500 rounded-t-lg cursor-pointer hover:text-red-600 hover:bg-gray-200">
                             <a x-on:click="modal = 'report_problem'">
