@@ -25,13 +25,13 @@
                         <div>
                             <label>Color</label>
                             <div class="mt-2 grid grid-cols-6 md:grid-cols-5 lg:grid-cols-7 gap-6">
-                                <a wire:click="setColor('blue')" class="w-8 h-8 bg-blue-500 rounded-full cursor-pointer slow-hover hover:scale-105 @if($project->color->name == 'blue') ring-primary-dark ring-2 @endif"></a>
-                                <a wire:click="setColor('yellow')" class="w-8 h-8 bg-yellow-500 rounded-full cursor-pointer slow-hover hover:scale-105 @if($project->color->name == 'yellow') ring-primary-dark ring-2 @endif"></a>
-                                <a wire:click="setColor('red')" class="w-8 h-8 bg-red-500 rounded-full cursor-pointer slow-hover hover:scale-105 @if($project->color->name == 'red') ring-primary-dark ring-2 @endif"></a>
-                                <a wire:click="setColor('green')" class="w-8 h-8 bg-green-500 rounded-full cursor-pointer slow-hover hover:scale-105 @if($project->color->name == 'green') ring-primary-dark ring-2 @endif"></a>
-                                <a wire:click="setColor('teal')" class="w-8 h-8 bg-teal-500 rounded-full cursor-pointer slow-hover hover:scale-105 @if($project->color->name == 'teal') ring-primary-dark ring-2 @endif"></a>
-                                <a wire:click="setColor('orange')" class="w-8 h-8 bg-orange-500 rounded-full cursor-pointer slow-hover hover:scale-105 @if($project->color->name == 'orange') ring-primary-dark ring-2 @endif"></a>
-                                <a wire:click="setColor('purple')" class="w-8 h-8 bg-purple-500 rounded-full cursor-pointer slow-hover hover:scale-105 @if($project->color->name == 'purple') ring-primary-dark ring-2 @endif"></a>
+                                <a wire:click="setColor('blue')" class="w-8 h-8 bg-blue-500 rounded-full cursor-pointer slow-hover hover:scale-105 @if($project->color && $project->color->name == 'blue') ring-primary-dark ring-2 @endif"></a>
+                                <a wire:click="setColor('yellow')" class="w-8 h-8 bg-yellow-500 rounded-full cursor-pointer slow-hover hover:scale-105 @if($project->color && $project->color->name == 'yellow') ring-primary-dark ring-2 @endif"></a>
+                                <a wire:click="setColor('red')" class="w-8 h-8 bg-red-500 rounded-full cursor-pointer slow-hover hover:scale-105 @if($project->color && $project->color->name == 'red') ring-primary-dark ring-2 @endif"></a>
+                                <a wire:click="setColor('green')" class="w-8 h-8 bg-green-500 rounded-full cursor-pointer slow-hover hover:scale-105 @if($project->color && $project->color->name == 'green') ring-primary-dark ring-2 @endif"></a>
+                                <a wire:click="setColor('teal')" class="w-8 h-8 bg-teal-500 rounded-full cursor-pointer slow-hover hover:scale-105 @if($project->color && $project->color->name == 'teal') ring-primary-dark ring-2 @endif"></a>
+                                <a wire:click="setColor('orange')" class="w-8 h-8 bg-orange-500 rounded-full cursor-pointer slow-hover hover:scale-105 @if($project->color && $project->color->name == 'orange') ring-primary-dark ring-2 @endif"></a>
+                                <a wire:click="setColor('purple')" class="w-8 h-8 bg-purple-500 rounded-full cursor-pointer slow-hover hover:scale-105 @if($project->color && $project->color->name == 'purple') ring-primary-dark ring-2 @endif"></a>
                             </div>
                         </div>
 
