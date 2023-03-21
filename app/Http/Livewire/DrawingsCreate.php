@@ -14,6 +14,7 @@ class DrawingsCreate extends Component
 
     public Project $project;
     public ?Drawing $drawing;
+    public $file;
     public $updating;
 
     protected $rules = [
@@ -26,7 +27,8 @@ class DrawingsCreate extends Component
     ];
 
     protected $messages = [
-        'drawing.file_path' => "A drawing must be uploaded",
+        'drawing.file_path' => "A drawing must be uploaded.",
+        'drawing.tag_id' => "A tag is required.",
     ];
 
     public function mount(Project $project, ?Drawing $drawing)
@@ -63,6 +65,16 @@ class DrawingsCreate extends Component
         if (!$this->updating) {
             $this->drawing->done = false;
             $this->drawing->project_id = $this->project->id;
+        }
+
+        if (!$this->updating) {
+            $this->validate([
+                'file' => 'image|max:1024',
+            ]);
+        }
+
+        if ($this->file) {
+            $this->drawing->file_path = $this->file->store('files');
         }
 
         $this->validate();

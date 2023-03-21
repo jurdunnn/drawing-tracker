@@ -14,6 +14,9 @@ module.exports = {
             variants: ['hover'],
         },
         {
+            pattern: /ring-(gray|red|green|blue|yellow|orange|purple|teal)-(500|600)/,
+        },
+        {
             pattern: /bg-primary-dark/,
         },
     ],

@@ -13,28 +13,37 @@
 
                         <div>
                             <label for="file_path">Drawing</label>
-                            <x-input model="drawing.file_path" type="file" name="file_path" class="w-full"/>
+                            <x-input model="file" type="file" name="file" class="w-full"/>
                         </div>
 
-                        <div>
-                            <label for="Start Date">Start Date</label>
-                            <x-input model="drawing.start_date" type="date" name="Start Date" class="w-full"/>
-                        </div>
+                        <div class="flex flex-col justify-between lg:flex-row gap-x-4">
+                            <div class="w-full">
+                                <label for="Start Date">Start Date</label>
+                                <x-input model="drawing.start_date" type="date" name="Start Date" class="w-full"/>
+                            </div>
 
-                        <div>
-                            <label for="Due Date">Due date</label>
-                            <x-input model="drawing.due_date" type="date" name="Due Date" class="w-full"/>
+                            <div class="w-full">
+                                <label for="Due Date">Due date</label>
+                                <x-input model="drawing.due_date" type="date" name="Due Date" class="w-full"/>
+                            </div>
                         </div>
 
                         <div>
                             <label>Tag</label>
-                            <div class="flex flex-row mt-2 gap-x-6">
+                            <div class="flex flex-wrap mt-4 gap-6">
                                 @foreach($tags as $tag)
-                                    <a wire:click="setTag({{ $tag }})" class="flex items-center w-32 font-bold text-center text-white bg-{{ $tag->color->name }}-500 opacity-[0.6] rounded-full cursor-pointer slow-hover hover:scale-105">
+                                    <a 
+                                        wire:click="setTag({{ $tag }})" 
+                                        class="flex items-center w-32 font-bold select-none text-center @if($drawing->tag_id == $tag->id) ring-4 ring-{{ $project->color->name}}-500 @endif text-white bg-{{ $tag->color->name }}-500 opacity-[0.6] rounded-full cursor-pointer slow-hover hover:scale-105"
+                                        >
                                         <p class="w-32">{{ $tag->name }}</p>
                                     </a>
                                 @endforeach
                             </div>
+
+                            @if ($errors->has('drawing.tag_id'))
+                                <p class="mt-2 font-bold text-red-500">{{ $errors->first('drawing.tag_id') }}</p>
+                            @endif
                         </div>
 
                         @if ($updating)
