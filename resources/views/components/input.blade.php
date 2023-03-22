@@ -5,7 +5,7 @@
     'inputTag' => 'input',
     'placeholder' => '',
     'label' => null,
-    'inputClasses' => 'bg-gray-100 font-bold text-gray-700 border-0 border-b-2 focus:border-transparent focus:border-b-gray-400 focus:ring-0 border-b-gray-300'
+    'inputClasses' => 'px-0 bg-gray-100 font-bold text-gray-700 border-0 border-b-2 focus:border-transparent focus:border-b-gray-400 focus:ring-0 border-b-gray-300'
 ])
 
 @if ($label)
