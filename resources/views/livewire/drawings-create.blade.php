@@ -5,15 +5,13 @@
         <x-view-contents :item="$project" :backRoute="$project->showRoute()" :closeRoute="$project->indexRoute()">
             <div class="flex flex-col px-2 mt-4 md:px-8 gap-y-24">
                 <div class="flex flex-col gap-y-6">
-                    <form wire:submit.prevent="submit" class="flex flex-col gap-y-6">
+                    <form wire:submit.prevent="submit" class="flex flex-col gap-y-14">
                         <div>
-                            <label for="name">Drawing Name</label>
-                            <x-input model="drawing.name" type="text" name="Name" class="w-full"/>
+                            <x-input model="drawing.name" type="text" name="name" label="Drawing Name" placeholder="Name" class="w-full"/>
                         </div>
 
                         <div>
-                            <label for="file_path">Drawing</label>
-                            <x-input model="file" type="file" name="file" class="w-full"/>
+                            <x-input model="file" type="file" name="file" label="File" class="w-full"/>
                         </div>
 
                         <div class="flex flex-col justify-between lg:flex-row gap-x-4">
@@ -34,7 +32,7 @@
                                 @foreach($tags as $tag)
                                     <a 
                                         wire:click="setTag({{ $tag }})" 
-                                        class="flex items-center w-32 font-bold select-none text-center @if($drawing->tag_id == $tag->id) ring-4 ring-{{ $project->color->name}}-500 @endif text-white bg-{{ $tag->color->name }}-500 opacity-[0.6] rounded-full cursor-pointer slow-hover hover:scale-105"
+                                        class="flex items-center w-32 font-bold select-none text-center @if($drawing->tag_id == $tag->id) scale-110 ring-1 ring-{{ $project->color->name}}-500 @endif text-white bg-{{ $tag->color->name }}-500 opacity-[0.6] rounded-full cursor-pointer slow-hover hover:scale-105"
                                         >
                                         <p class="w-32">{{ $tag->name }}</p>
                                     </a>

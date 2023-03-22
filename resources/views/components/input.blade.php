@@ -1,10 +1,22 @@
-@props(['type', 'name' => '', 'model' => null, 'inputTag' => 'input',])
+@props([
+    'type',
+    'name' => '',
+    'model' => null,
+    'inputTag' => 'input',
+    'placeholder' => '',
+    'label' => null,
+    'inputClasses' => 'bg-gray-100 font-bold text-gray-700 border-0 border-b-2 focus:border-transparent focus:border-b-gray-400 focus:ring-0 border-b-gray-300'
+])
+
+@if ($label)
+    <label for="{{ $name }}">{{ $label }}</label>
+@endif
 
 <{{ $inputTag }} {{ $attributes->class([
-        "bg-primary-dark font-bold text-gray-100 p-3 rounded-lg",
+        $inputClasses,
         "ring-2 ring-red-500" => $errors->has($name),
     ])->merge([
-        'placeholder' => $name,
+        'placeholder' => $placeholder,
         'id' => $name,
         'name' => $name,
         'type' => $type,
