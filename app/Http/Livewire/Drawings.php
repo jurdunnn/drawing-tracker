@@ -50,6 +50,8 @@ class Drawings extends Component
         $drawing->update([
             'done' => true,
         ]);
+
+        return redirect(request()->header('Referer'));
     }
 
     public function hideProjectTag(Tag $tag)
