@@ -4,10 +4,10 @@
     <x-view-wrapper>
         <x-view-contents :item="$project" :closeRoute="route('projects.index')">
             @if ($project->drawings->count() > 0)
-                <div class="flex flex-row flex-wrap justify-between w-full py-2 gap-x-4">
+                <div class="flex flex-row flex-wrap justify-between w-full py-2 text-md gap-x-2">
                     <button 
                         @class([
-                            'px-4 py-3 my-2 ml-auto mr-auto font-bold text-center cursor-pointer hover:scale-110 slow-hover rounded-xl hover:bg-gray-500 hover:text-white',
+                            'px-3 py-2 my-3 ml-auto mr-auto font-bold text-center cursor-pointer hover:scale-105 slow-hover rounded-xl hover:bg-gray-500 hover:text-white',
                             'bg-gray-500 text-white' => $activeTab === 'All Drawings',
                         ])
                         wire:click="setActiveTab('All Drawings')"
@@ -18,7 +18,7 @@
                     @foreach ($project->drawings->first()->tag->getAvailableTags() as $tag)
                         <button 
                             @class([
-                                "px-4 py-3 my-2 ml-auto mr-auto font-bold text-center cursor-pointer hover:scale-110 slow-hover rounded-xl hover:bg-{$tag->color->name}-500 hover:text-white",
+                                "px-3 py-2 my-3 ml-auto mr-auto font-bold text-center cursor-pointer hover:scale-105 slow-hover rounded-xl hover:bg-{$tag->color->name}-500 hover:text-white",
                                 "bg-{$tag->color->name}-500 text-white" => $activeTab === $tag->name,
                             ])
                             wire:click="setActiveTab('{{ $tag->name }}')"
@@ -30,9 +30,9 @@
 
                 <ul class="flex flex-col gap-y-4">
                     @foreach($drawings as $drawing)
-                        <li class="flex flex-col justify-between h-full px-4 py-2 hover:scale-[101%] hover:bg-gray-200 rounded-md md:flex-row">
+                        <li class="flex flex-col justify-between h-full px-4 py-2 hover:scale-[101%] hover:bg-gray-200 rounded-md md:flex-row @if($drawing->due_date < now()) text-red-500 @endif">
                             <a href="#" class="flex w-full cursor-pointer gap-x-4">
-                                <div class="flex text-white select-none font-bold items-center justify-center w-5 h-5 my-auto bg-{{ $drawing->tag->color->name }}-500 rounded-md">
+                                <div data-tippy-content="{{$drawing->tag->name}}" class="flex text-white select-none font-bold items-center justify-center w-5 h-5 my-auto bg-{{ $drawing->tag->color->name }}-500 rounded-md">
                                 </div>
                                 <div class="flex flex-col">
                                     <h4 class="font-bold">{{ $drawing->name }}</h4>
@@ -49,9 +49,9 @@
                             </a>
 
                             <div class="flex items-center gap-x-4">
-                                <x-button link="#" icon="fa-trash fa-lg" iconColor="text-red-500" buttonClasses="hover:scale-110 slow-hover" theme="none" />
-                                    <x-button :link="$drawing->showRoute()" icon="fa-pencil fa-lg" iconColor="text-{{ $drawing->project->color->name }}-500" buttonClasses="hover:scale-110 slow-hover" theme="none" />
-                                        <x-button link="#" icon="fa-download fa-lg" iconColor="text-{{ $drawing->project->color->name }}-500" buttonClasses="hover:scale-110 slow-hover" theme="none" />
+                                <x-button wire="deleteDrawing({{$drawing->id}})" icon="fa-trash fa-lg" tooltip="Delete" iconColor="text-red-500" buttonClasses="hover:scale-110 slow-hover cursor-pointer" theme="none" />
+                                <x-button :link="$drawing->showRoute()" icon="fa-pencil fa-lg" tooltip="Edit" iconColor="text-{{ $drawing->project->color->name }}-500" buttonClasses="hover:scale-110 slow-hover" theme="none" />
+                                <x-button wire="downloadDrawing({{$drawing->id}})" icon="fa-download fa-lg" tooltip="Download" iconColor="text-{{ $drawing->project->color->name }}-500" buttonClasses="hover:scale-110 slow-hover cursor-pointer" theme="none" />
                             </div>
                         </li>
                     @endforeach

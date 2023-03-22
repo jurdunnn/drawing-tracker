@@ -53,13 +53,6 @@ class DrawingsCreate extends Component
         $this->drawing->tag_id = $tag['id'];
     }
 
-    public function delete()
-    {
-        Drawing::findOrFail($this->drawing->id)->delete();
-
-        return redirect($this->project->showRoute());
-    }
-
     public function submit()
     {
         if (!$this->updating) {

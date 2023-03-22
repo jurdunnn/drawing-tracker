@@ -6,6 +6,7 @@ use App\Models\Drawing;
 use App\Models\Project;
 use App\Models\Tag;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 
 class Drawings extends Component
@@ -18,7 +19,7 @@ class Drawings extends Component
 
     public function mount(Project $project)
     {
-        $this->drawings = $project->drawings;
+        $this->drawings = $project->drawings->sortBy('due_date');
 
         $this->project = $project;
 
@@ -44,6 +45,18 @@ class Drawings extends Component
         ]);
     }
 
+    public function deleteDrawing(Drawing $drawing)
+    {
+        $drawing->delete();
+
+        return redirect($this->project->showRoute());
+    }
+
+    public function downloadDrawing(Drawing $drawing)
+    {
+        return Storage::download($drawing->file_path, $drawing->name);
+    }
+
     public function setActiveTab($tab)
     {
         $this->activeTab = $tab;
@@ -54,6 +67,6 @@ class Drawings extends Component
             }
 
             return $drawing->tag->name === $this->activeTab;
-        });
+        })->sortBy('due_date');
     }
 }
