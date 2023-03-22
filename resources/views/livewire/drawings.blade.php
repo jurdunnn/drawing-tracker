@@ -28,7 +28,34 @@
                     @endforeach
                 </div>
 
-                <x-item-list :items="$drawings"/>
+                <ul class="flex flex-col gap-y-4">
+                    @foreach($drawings as $drawing)
+                        <li class="flex flex-col justify-between h-full px-4 py-2 hover:scale-[101%] hover:bg-gray-200 rounded-md md:flex-row">
+                            <a href="#" class="flex w-full cursor-pointer gap-x-4">
+                                <div class="flex text-white select-none font-bold items-center justify-center w-5 h-5 my-auto bg-{{ $drawing->tag->color->name }}-500 rounded-md">
+                                </div>
+                                <div class="flex flex-col">
+                                    <h4 class="font-bold">{{ $drawing->name }}</h4>
+                                    <div class="flex gap-x-2">
+                                        @if ($drawing->start_date)
+                                            <p class="text-xs">Start: {{ $drawing->formatted_start_date }}</p>
+                                        @endif
+
+                                        @if ($drawing->due_date)
+                                            <p class="text-xs">Due: {{ $drawing->formatted_due_date }}</p>
+                                        @endif
+                                    </div>
+                                </div>
+                            </a>
+
+                            <div class="flex items-center gap-x-4">
+                                <x-button link="#" icon="fa-trash fa-lg" iconColor="text-red-500" buttonClasses="hover:scale-110 slow-hover" theme="none" />
+                                    <x-button :link="$drawing->showRoute()" icon="fa-pencil fa-lg" iconColor="text-{{ $drawing->project->color->name }}-500" buttonClasses="hover:scale-110 slow-hover" theme="none" />
+                                        <x-button link="#" icon="fa-download fa-lg" iconColor="text-{{ $drawing->project->color->name }}-500" buttonClasses="hover:scale-110 slow-hover" theme="none" />
+                            </div>
+                        </li>
+                    @endforeach
+                </ul>
             @else
                 <p class="pt-4 text-center">This project has no drawings.</p>
                 <a 
