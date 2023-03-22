@@ -48,7 +48,7 @@
                                 </div>
                             </a>
 
-                            <div class="flex items-center gap-x-4" x-data="{ confirmDelete: false }">
+                            <div class="flex items-center mt-4 ml-9 md:ml-0 md:mt-0 gap-x-4" x-data="{ confirmDelete: false }">
                                 <!-- Delete Button and Delete confirmation -->
                                 <x-button xclick="confirmDelete = true" x-show="!confirmDelete" x-cloak icon="fa-trash fa-lg" tooltip="Delete" iconColor="text-red-500" buttonClasses="hover:scale-110 slow-hover cursor-pointer" theme="none" />
                                 <div class="flex gap-x-2" x-show="confirmDelete" x-cloak>
