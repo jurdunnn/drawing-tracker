@@ -10,7 +10,8 @@
     'buttonColor' => '',
     'buttonTag' => 'a',
     'tooltip' => null,
-    'wire' => null
+    'wire' => null,
+    'xclick' => null
 ])
 
 <{{ $buttonTag }} {{
@@ -27,7 +28,8 @@
         'type' => $type,
         'wire:click' => $wire,
         'onclick' => $onclick,
-        'data-tippy-content' => $tooltip
+        'data-tippy-content' => $tooltip,
+        'x-on:click' => $xclick,
     ])
 }}
     >

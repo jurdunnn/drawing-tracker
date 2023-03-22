@@ -48,8 +48,15 @@
                                 </div>
                             </a>
 
-                            <div class="flex items-center gap-x-4">
-                                <x-button wire="deleteDrawing({{$drawing->id}})" icon="fa-trash fa-lg" tooltip="Delete" iconColor="text-red-500" buttonClasses="hover:scale-110 slow-hover cursor-pointer" theme="none" />
+                            <div class="flex items-center gap-x-4" x-data="{ confirmDelete: false }">
+                                <!-- Delete Button and Delete confirmation -->
+                                <x-button xclick="confirmDelete = true" x-show="!confirmDelete" x-cloak icon="fa-trash fa-lg" tooltip="Delete" iconColor="text-red-500" buttonClasses="hover:scale-110 slow-hover cursor-pointer" theme="none" />
+                                <div class="flex gap-x-2" x-show="confirmDelete" x-cloak>
+                                    <x-button xclick="confirmDelete = false" icon="fa-xmark fa-lg" tooltip="Cancel" iconColor="text-gray-500" buttonClasses="hover:scale-110 slow-hover cursor-pointer" theme="none" />
+                                    <x-button wire="deleteDrawing({{$drawing->id}})" icon="fa-check fa-lg" tooltip="Confirm Delete" iconColor="text-red-500" buttonClasses="hover:scale-110 slow-hover cursor-pointer" theme="none" />
+                                </div>
+
+                                <!-- Other Buttons -->
                                 <x-button wire="archiveDrawing({{$drawing->id}})" icon="fa-box-archive fa-lg" tooltip="Archive" iconColor="text-{{ $drawing->project->color->name }}-500" buttonClasses="hover:scale-110 slow-hover cursor-pointer" theme="none" />
                                 <x-button :link="$drawing->showRoute()" icon="fa-pencil fa-lg" tooltip="Edit" iconColor="text-{{ $drawing->project->color->name }}-500" buttonClasses="hover:scale-110 slow-hover" theme="none" />
                                 <x-button wire="downloadDrawing({{$drawing->id}})" icon="fa-download fa-lg" tooltip="Download" iconColor="text-{{ $drawing->project->color->name }}-500" buttonClasses="hover:scale-110 slow-hover cursor-pointer" theme="none" />
