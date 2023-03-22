@@ -32,7 +32,7 @@
                     @foreach($drawings as $drawing)
                         <li class="flex flex-col justify-between h-full px-4 py-2 hover:scale-[101%] hover:bg-gray-200 rounded-md md:flex-row @if($drawing->due_date && $drawing->due_date < now()) text-red-500 @endif">
                             <a href="#" class="flex w-full cursor-pointer gap-x-4">
-                                <div data-tippy-content="{{$drawing->tag->name}}" class="flex text-white select-none font-bold items-center justify-center w-5 h-5 my-auto bg-{{ $drawing->tag->color->name }}-500 rounded-md">
+                                <div data-tippy-content="{{$drawing->tag->name}}" class="flex shrink-0 text-white select-none font-bold items-center justify-center w-5 h-5 my-auto bg-{{ $drawing->tag->color->name }}-500 rounded-md">
                                 </div>
                                 <div class="flex flex-col">
                                     <h4 class="font-bold">{{ $drawing->name }}</h4>
