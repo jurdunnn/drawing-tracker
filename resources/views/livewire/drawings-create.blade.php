@@ -46,22 +46,9 @@
                             @endif
                         </div>
 
-                        @if ($updating)
-                            <div class="flex gap-x-4 leading-[2rem]">
-                                <label for="Done">Mark as Done</label>
-                                <x-input model="drawing.done" type="checkbox" name="Done" value="false" theme="none" class="bg-primary-dark hover:scale-110 cursor-pointer checked:bg-[#434458]"/>
-                            </div>
-                        @endif
-
                         <x-button type="submit" buttonColor="bg-{{ $project->color ? $project->color->name . '-500'  : 'primary-dark' }} text-white"  buttonTag="button" theme="primary">
                             {{ $updating ? 'Update' : 'Create' }}
                         </x-button>
-
-                        @if ($updating)
-                            <x-button wire="delete" theme="danger">
-                                Delete Project 
-                            </x-button>
-                        @endif
                     </form>
                 </div>
             </div>

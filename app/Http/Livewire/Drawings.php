@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Drawing;
 use App\Models\Project;
 use App\Models\Tag;
+use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
@@ -19,7 +20,13 @@ class Drawings extends Component
 
     public function mount(Project $project)
     {
-        $this->drawings = $project->drawings->sortBy('due_date');
+        $this->drawings = $project
+            ->drawings
+            ->where('done', false)
+            // Avoid drawings without due dates being sorted at the top.
+            ->sortBy(function ($project) {
+                return $project->due_date ?: Carbon::now()->addCenturies(99);
+            });
 
         $this->project = $project;
 
@@ -35,6 +42,13 @@ class Drawings extends Component
     {
         $drawing->update([
             'tag_id' => $tag->id,
+        ]);
+    }
+
+    public function archiveDrawing(Drawing $drawing)
+    {
+        $drawing->update([
+            'done' => true,
         ]);
     }
 
@@ -61,12 +75,17 @@ class Drawings extends Component
     {
         $this->activeTab = $tab;
 
-        $this->drawings = $this->project->drawings->filter(function ($drawing) {
-            if ($this->activeTab === 'All Drawings') {
-                return true;
-            }
+        $this->drawings = $this->project
+            ->drawings
+            ->where('done', false)
+            ->filter(function ($drawing) {
+                if ($this->activeTab === 'All Drawings') {
+                    return true;
+                }
 
-            return $drawing->tag->name === $this->activeTab;
-        })->sortBy('due_date');
+                return $drawing->tag->name === $this->activeTab;
+            })->sortBy(function ($project) {
+                return $project->due_date ?: Carbon::now()->addCenturies(99);
+            });
     }
 }

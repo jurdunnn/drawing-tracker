@@ -18,7 +18,6 @@ class DrawingsCreate extends Component
     public $updating;
 
     protected $rules = [
-        'drawing.done' => 'boolean|required',
         'drawing.tag_id' => 'int|required',
         'drawing.name' => 'string|required',
         'drawing.file_path' => 'string|required',

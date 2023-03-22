@@ -3,7 +3,7 @@
 
     <x-view-wrapper>
         <x-view-contents :item="$project" :closeRoute="route('projects.index')">
-            @if ($project->drawings->count() > 0)
+            @if ($project->drawings->where('done', false)->count() > 0)
                 <div class="flex flex-row flex-wrap justify-between w-full py-2 text-md gap-x-2">
                     <button 
                         @class([
@@ -30,7 +30,7 @@
 
                 <ul class="flex flex-col gap-y-4">
                     @foreach($drawings as $drawing)
-                        <li class="flex flex-col justify-between h-full px-4 py-2 hover:scale-[101%] hover:bg-gray-200 rounded-md md:flex-row @if($drawing->due_date < now()) text-red-500 @endif">
+                        <li class="flex flex-col justify-between h-full px-4 py-2 hover:scale-[101%] hover:bg-gray-200 rounded-md md:flex-row @if($drawing->due_date && $drawing->due_date < now()) text-red-500 @endif">
                             <a href="#" class="flex w-full cursor-pointer gap-x-4">
                                 <div data-tippy-content="{{$drawing->tag->name}}" class="flex text-white select-none font-bold items-center justify-center w-5 h-5 my-auto bg-{{ $drawing->tag->color->name }}-500 rounded-md">
                                 </div>
@@ -50,6 +50,7 @@
 
                             <div class="flex items-center gap-x-4">
                                 <x-button wire="deleteDrawing({{$drawing->id}})" icon="fa-trash fa-lg" tooltip="Delete" iconColor="text-red-500" buttonClasses="hover:scale-110 slow-hover cursor-pointer" theme="none" />
+                                <x-button wire="archiveDrawing({{$drawing->id}})" icon="fa-box-archive fa-lg" tooltip="Archive" iconColor="text-{{ $drawing->project->color->name }}-500" buttonClasses="hover:scale-110 slow-hover cursor-pointer" theme="none" />
                                 <x-button :link="$drawing->showRoute()" icon="fa-pencil fa-lg" tooltip="Edit" iconColor="text-{{ $drawing->project->color->name }}-500" buttonClasses="hover:scale-110 slow-hover" theme="none" />
                                 <x-button wire="downloadDrawing({{$drawing->id}})" icon="fa-download fa-lg" tooltip="Download" iconColor="text-{{ $drawing->project->color->name }}-500" buttonClasses="hover:scale-110 slow-hover cursor-pointer" theme="none" />
                             </div>
@@ -71,7 +72,7 @@
             <x-toolbelt-button icon="trash" color="red" link="#" tooltip="Delete Project" />
             <x-toolbelt-button icon="pencil" :color="$project->color->name" :link="$project->editRoute()" tooltip="Edit Project" />
             <x-toolbelt-button icon="plus" :color="$project->color->name" :link="route('projects.drawings.create', ['project' => $this->project->id])" tooltip="Create Drawing" />
-            <x-toolbelt-button icon="box-archive" :color="$project->color->name" link="#" tooltip="Completed Drawings" />
+            <x-toolbelt-button icon="box-archive" :color="$project->color->name" link="#" tooltip="Archived Drawings" />
         </x-toolbelt>
     </x-view-wrapper>
 </x-split-project-drawing-view>
