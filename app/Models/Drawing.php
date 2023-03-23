@@ -69,7 +69,7 @@ class Drawing extends Model
 
             $contents = Storage::get($this->file_path);
         } catch (Exception $e) {
-            Log::error($e);
+            Log::error($e->getMessage());
 
             return '';
         }
