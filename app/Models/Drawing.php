@@ -6,6 +6,7 @@ use App\Http\Traits\TextHelperTrait;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Drawing extends Model
 {
@@ -55,5 +56,16 @@ class Drawing extends Model
     public function formatDate($date)
     {
         return Carbon::parse($date)->toFormattedDateString();
+    }
+
+    public function getBase64ImageAttribute()
+    {
+        $download = Storage::download($this->file_path);
+
+        $contentType = $download->headers->get('content-type');
+
+        $contents = Storage::get($this->file_path);
+
+        return "data:{$contentType};base64," . base64_encode($contents);
     }
 }
