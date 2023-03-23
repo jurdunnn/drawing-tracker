@@ -4,8 +4,10 @@ namespace App\Models;
 
 use App\Http\Traits\TextHelperTrait;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class Drawing extends Model
@@ -60,11 +62,17 @@ class Drawing extends Model
 
     public function getBase64ImageAttribute()
     {
-        $download = Storage::download($this->file_path);
+        try {
+            $download = Storage::download($this->file_path);
 
-        $contentType = $download->headers->get('content-type');
+            $contentType = $download->headers->get('content-type');
 
-        $contents = Storage::get($this->file_path);
+            $contents = Storage::get($this->file_path);
+        } catch (Exception $e) {
+            Log::error($e);
+
+            return '';
+        }
 
         return "data:{$contentType};base64," . base64_encode($contents);
     }

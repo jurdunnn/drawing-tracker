@@ -20,6 +20,14 @@
         @livewireStyles
     </head>
     <body class="min-h-screen antialiased bg-primary-main" x-data="globalData()">
+        <template x-if="imageModal != 'hidden'" wire:ignore>
+            <div class="fixed top-0 left-0 z-50 w-screen h-screen">
+                <x-modal closeButton="imageModal = 'hidden'" wire:ignore>
+                    <img :src="imageModal" />
+                </x-modal>
+            </div>
+        </template>
+
         {{ $slot }}
 
         <script src="https://unpkg.com/@popperjs/core@2"></script>
@@ -31,6 +39,7 @@
         const globalData = () => {
             return {
                 'fullscreen': 'false',
+                'imageModal': 'hidden',
                 init() {
                     if (window.location.pathname === '/projects') {
                         localStorage.fullscreen = 'false';
