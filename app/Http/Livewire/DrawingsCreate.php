@@ -18,9 +18,10 @@ class DrawingsCreate extends Component
     public $updating;
 
     protected $rules = [
+        'file' => 'file|max:10240',
         'drawing.tag_id' => 'int|required',
         'drawing.name' => 'string|required',
-        'drawing.file_path' => 'string|required',
+        'drawing.file_path' => 'string',
         'drawing.due_date' => 'string|nullable',
         'drawing.start_date' => 'string|nullable',
     ];
@@ -59,17 +60,9 @@ class DrawingsCreate extends Component
             $this->drawing->project_id = $this->project->id;
         }
 
-        if (!$this->updating) {
-            $this->validate([
-                'file' => 'image|max:1024',
-            ]);
-        }
-
-        if ($this->file) {
-            $this->drawing->file_path = $this->file->store('files');
-        }
-
         $this->validate();
+
+        $this->drawing->file_path = $this->file->store('files');
 
         $this->drawing->save();
 

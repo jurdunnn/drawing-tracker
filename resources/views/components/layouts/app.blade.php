@@ -23,7 +23,9 @@
         <template x-if="imageModal != 'hidden'" wire:ignore>
             <div class="fixed top-0 left-0 z-50 w-screen h-screen">
                 <x-modal closeButton="imageModal = 'hidden'" wire:ignore>
-                    <img :src="imageModal" />
+                    <div class="flex justify-center w-full h-full">
+                        <img class="my-auto" :src="imageModal" />
+                    </div>
                 </x-modal>
             </div>
         </template>
