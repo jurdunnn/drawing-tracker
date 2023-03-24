@@ -24,6 +24,11 @@
             <div class="fixed top-0 left-0 z-50 w-screen h-screen">
                 <x-modal closeButton="selectedDrawing = null" wire:ignore>
                     <div class="flex justify-center w-full h-full">
+                        <template x-if="isLoading.drawingModal" >
+                            <span class="text-primary-dark">
+                                <i class="fa-solid fa-spinner fa-spin fa-6x"></i>
+                            </span>
+                        </template>
                         <img class="my-auto" :src="selectedDrawingModalSrc" />
                     </div>
                 </x-modal>
@@ -43,6 +48,9 @@
         Alpine.data('globalData', () => ({
                 fullscreen: 'false',
                 selectedDrawing: null,
+                isLoading: {
+                    drawingModal: false,
+                },
                 init() {
                     if (window.location.pathname === '/projects') {
                         localStorage.fullscreen = 'false';
@@ -55,11 +63,15 @@
                 },
                 selectedDrawingModalSrc() {
                     if (this.selectedDrawing) {
+                        this.isLoading.drawingModal = true;
+
                         return fetch(`/api/drawings/images/${this.selectedDrawing}`)
                             .then(response => {
                                 return response.json()
                             })
                             .then(data => {
+                                this.isLoading.drawingModal = false;
+
                                 return data.image;
                             });
                     }
