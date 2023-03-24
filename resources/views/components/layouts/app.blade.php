@@ -20,11 +20,11 @@
         @livewireStyles
     </head>
     <body class="min-h-screen antialiased bg-primary-main" x-data="globalData()">
-        <template x-if="imageModal != 'hidden'" wire:ignore>
+        <template x-if="selectedDrawing" wire:ignore>
             <div class="fixed top-0 left-0 z-50 w-screen h-screen">
-                <x-modal closeButton="imageModal = 'hidden'" wire:ignore>
+                <x-modal closeButton="selectedDrawing = null" wire:ignore>
                     <div class="flex justify-center w-full h-full">
-                        <img class="my-auto" :src="imageModal" />
+                        <img class="my-auto" :src="selectedDrawingModalSrc" />
                     </div>
                 </x-modal>
             </div>
@@ -38,22 +38,35 @@
     </body>
 
     <script>
-        const globalData = () => {
-            return {
-                'fullscreen': 'false',
-                'imageModal': 'hidden',
+
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('globalData', () => ({
+                fullscreen: 'false',
+                selectedDrawing: null,
                 init() {
                     if (window.location.pathname === '/projects') {
                         localStorage.fullscreen = 'false';
                     } 
 
                     this.fullscreen = localStorage.fullscreen ?? false;
-
                     this.$watch('fullscreen', (val) => localStorage.fullscreen = val);
 
                     tippy('[data-tippy-content]');
                 },
-            }
-        }
+                selectedDrawingModalSrc() {
+                    if (this.selectedDrawing) {
+                        return fetch(`/api/drawings/images/${this.selectedDrawing}`)
+                            .then(response => {
+                                return response.json()
+                            })
+                            .then(data => {
+                                return data.image;
+                            });
+                    }
+
+                    return null;
+                },
+            }))
+        });
     </script>
 </html>

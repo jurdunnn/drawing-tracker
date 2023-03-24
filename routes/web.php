@@ -23,6 +23,8 @@ Route::get('logout', function () {
     return redirect()->to(route('login'));
 })->name('logout');
 
+Route::get('api/drawings/images/{drawing}', "App\Http\Controllers\DrawingsApiController@getDrawingImage");
+
 Route::prefix('projects')->group(function () {
     Route::name('projects.')->group(function () {
         Route::get('/', Projects::class)
