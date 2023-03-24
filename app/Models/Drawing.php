@@ -30,6 +30,19 @@ class Drawing extends Model
         'start_date',
     ];
 
+    protected static function booted(): void
+    {
+        static::deleting(function ($drawing) {
+            Storage::delete($drawing->file_path);
+        });
+
+        static::updated(function ($drawing) {
+            if ($drawing->wasChanged('file_path')) {
+                Storage::delete($drawing->getOriginal('file_path'));
+            }
+        });
+    }
+
     public function tag()
     {
         return $this->belongsTo(Tag::class);
