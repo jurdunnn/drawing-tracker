@@ -79,7 +79,7 @@
             <x-toolbelt-button icon="trash" color="red" link="#" tooltip="Delete Project" />
             <x-toolbelt-button icon="pencil" :color="$project->color->name" :link="$project->editRoute()" tooltip="Edit Project" />
             <x-toolbelt-button icon="plus" :color="$project->color->name" :link="route('projects.drawings.create', ['project' => $this->project->id])" tooltip="Create Drawing" />
-            <x-toolbelt-button icon="box-archive" :color="$project->color->name" link="#" tooltip="Archived Drawings" />
+            <x-toolbelt-button icon="box-archive" :color="$project->color->name" :link="route('projects.drawings.archived', ['project' => $this->project->id])" tooltip="Archived Drawings" />
         </x-toolbelt>
     </x-view-wrapper>
 </x-split-project-drawing-view>

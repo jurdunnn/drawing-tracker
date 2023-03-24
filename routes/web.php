@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Livewire\ArchivedDrawings;
 use App\Http\Livewire\Drawings;
 use App\Http\Livewire\DrawingsCreate;
 use Illuminate\Support\Facades\Auth;
@@ -47,6 +48,10 @@ Route::prefix('projects')->group(function () {
 
                 Route::get('/create', DrawingsCreate::class)
                     ->name('create')
+                    ->can('view', [User::class, Drawing::class]);
+
+                Route::get('/archived', ArchivedDrawings::class)
+                    ->name('archived')
                     ->can('view', [User::class, Drawing::class]);
 
                 Route::get('/{drawing}/edit', DrawingsCreate::class)
