@@ -16,6 +16,8 @@ class Drawings extends Component
 
     public Collection $drawings;
 
+    public Collection $tags;
+
     public string $activeTab;
 
     public function mount(Project $project)
@@ -31,6 +33,8 @@ class Drawings extends Component
         $this->project = $project;
 
         $this->activeTab = 'All Drawings';
+
+        $this->tags = Tag::all();
     }
 
     public function render()

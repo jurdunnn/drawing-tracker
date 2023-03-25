@@ -15,7 +15,7 @@
                         All Drawings
                     </button>
 
-                    @foreach ($project->drawings->first()->tag->getAvailableTags() as $tag)
+                    @foreach ($tags as $tag)
                         <button 
                             @class([
                                 "px-3 py-2 my-3 ml-auto mr-auto font-bold text-center cursor-pointer hover:scale-105 slow-hover rounded-xl hover:bg-{$tag->color->name}-500 hover:text-white",

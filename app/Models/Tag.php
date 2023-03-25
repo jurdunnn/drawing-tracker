@@ -19,11 +19,4 @@ class Tag extends Model
     {
         return $this->belongsTo(User::class);
     }
-
-    public function getAvailableTags()
-    {
-        return Tag::where('user_id', Auth::user()->id)
-            ->orWhere('user_id', null)
-            ->get();
-    }
 }
