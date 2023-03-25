@@ -10,21 +10,6 @@
             <template x-if="showUserManagement">
                 <div class="absolute bg-white rounded-lg shadow-2xl top-8 right-32">
                     <ul class="py-1 text-center select-none">
-                        <li class="px-4 py-2 text-red-500 rounded-t-lg cursor-pointer hover:text-red-600 hover:bg-gray-200">
-                            <a x-on:click="modal = 'report_problem'">
-                                Report Problem
-                            </a>
-                        </li>
-                        <li class="px-4 py-2 cursor-pointer hover:bg-gray-200">
-                            <a x-on:click="modal = 'delete_account'">
-                                Delete Account
-                            </a>
-                        </li>
-                        <li class="px-4 py-2 cursor-pointer hover:bg-gray-200">
-                            <a x-on:click="modal = 'change_password'">
-                                Change Password
-                            </a>
-                        </li>
                         <li class="px-4 py-2 rounded-b-lg cursor-pointer hover:bg-gray-200">
                             <a href="{{ route('logout') }}">
                                 Logout
@@ -38,18 +23,6 @@
 
     <template x-if="modal != 'hidden'">
         <x-modal closeButton="modal = 'hidden'">
-            <template x-if="modal == 'change_password'">
-                <livewire:change-password />
-            </template>
-
-            <template x-if="modal == 'delete_account'">
-                <livewire:delete-account />
-            </template>
-
-            <template x-if="modal == 'report_problem'">
-                <livewire:report-problem />
-            </template>
-
         </x-modal>
     </template>
 

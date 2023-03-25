@@ -5,7 +5,8 @@
     'inputTag' => 'input',
     'placeholder' => '',
     'label' => null,
-    'inputClasses' => 'px-0 bg-gray-100 font-bold text-gray-700 border-0 border-b-2 focus:border-transparent focus:border-b-gray-400 focus:ring-0 border-b-gray-300'
+    'inputClasses' => 'px-0 font-bold text-gray-700 border-0 border-b-2 focus:border-transparent focus:border-b-gray-400 focus:ring-0 border-b-gray-300',
+    'backgroundColor' => 'bg-gray-100'
 ])
 
 @if ($label)
@@ -14,6 +15,7 @@
 
 <{{ $inputTag }} {{ $attributes->class([
         $inputClasses,
+        $backgroundColor,
         "ring-2 ring-red-500" => $errors->has($name),
     ])->merge([
         'placeholder' => $placeholder,
