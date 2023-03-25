@@ -60,6 +60,10 @@ class DrawingsCreate extends Component
             $this->drawing->project_id = $this->project->id;
         }
 
+        if ($this->file) {
+            $this->drawing->file_path = '';
+        }
+
         $this->validate();
 
         $this->drawing->file_path = $this->file->store('files');
