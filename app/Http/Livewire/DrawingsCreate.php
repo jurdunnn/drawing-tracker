@@ -18,7 +18,7 @@ class DrawingsCreate extends Component
     public $updating;
 
     protected $rules = [
-        'file' => 'file|max:10240',
+        'file' => 'max:10240',
         'drawing.tag_id' => 'int|required',
         'drawing.name' => 'string|required',
         'drawing.file_path' => 'string',
