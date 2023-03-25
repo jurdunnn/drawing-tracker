@@ -1,4 +1,4 @@
-<div x-show="fullscreen == 'false'" x-cloak x-data="{ modal: 'hidden' }">
+<div x-show="fullscreen == 'false'" x-cloak>
     <template x-if="window.location.pathname === '/projects'">
         <div class="relative flex justify-end w-full px-12 py-4" x-data="{ showUserManagement: false }" x-on:click.away="showUserManagement = false">
             <button x-on:click="showUserManagement = !showUserManagement" class="flex items-center w-12 h-12 text-white rounded-full cursor-pointer bg-primary-dark hover:text-primary-main hover:scale-110 slow-hover">
@@ -10,6 +10,16 @@
             <template x-if="showUserManagement">
                 <div class="absolute bg-white rounded-lg shadow-2xl top-8 right-32">
                     <ul class="py-1 text-center select-none">
+                        <li class="px-4 py-2 text-gray-300 text-red-500 rounded-t-lg hover:bg-gray-200">
+                            <a href="#" class="cursor-not-allowed">
+                                Report Problem
+                            </a>
+                        </li>
+                        <li class="px-4 py-2 text-gray-300 hover:bg-gray-200">
+                            <a href="#" class="cursor-not-allowed">
+                                Account Management
+                            </a>
+                        </li>
                         <li class="px-4 py-2 rounded-b-lg cursor-pointer hover:bg-gray-200">
                             <a href="{{ route('logout') }}">
                                 Logout
@@ -19,11 +29,6 @@
                 </div>
             </template>
         </div>
-    </template>
-
-    <template x-if="modal != 'hidden'">
-        <x-modal closeButton="modal = 'hidden'">
-        </x-modal>
     </template>
 
     <div class="flex flex-col w-full p-1 p-8 text-gray-400 sm:py-32 sm:px-24 md:px-12 gap-y-8">
