@@ -68,6 +68,14 @@
                         </li>
                     @endforeach
                 </ul>
+            @elseif ($project->drawings->where('done', true)->count() > 0)
+                <p class="pt-4 text-center">The drawings in this project are archived.</p>
+                <a 
+                    class="font-bold text-center text-{{ $project->color->name }}-500 hover:underline px-12 mx-auto" 
+                    href="{{ route('projects.drawings.archived', ['project' => $this->project->id]) }}"
+                >
+                Go to archives.
+                </a>
             @else
                 <p class="pt-4 text-center">This project has no drawings.</p>
                 <a 
