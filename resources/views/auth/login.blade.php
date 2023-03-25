@@ -7,9 +7,9 @@
                 <form method="POST" action="{{ route('authenticate') }}" class="flex flex-col gap-y-6">
                     @csrf
 
-                    <x-input type="email" name="email" inputClasses="bg-primary-dark font-bold text-gray-100 p-3 rounded-lg border-0 focus:border-transparent focus:ring-0" placeholder="Email Address" />
+                    <x-input type="email" name="email" backgroundColor="bg-primary-dark" inputClasses="font-bold text-gray-100 p-3 rounded-lg border-0 focus:border-transparent focus:ring-0" placeholder="Email Address" />
 
-                    <x-input type="password" name="password" inputClasses="bg-primary-dark font-bold text-gray-100 p-3 rounded-lg border-0 focus:border-transparent focus:ring-0" placeholder="Password" />
+                    <x-input type="password" name="password" backgroundColor="bg-primary-dark" inputClasses="font-bold text-gray-100 p-3 rounded-lg border-0 focus:border-transparent focus:ring-0" placeholder="Password" />
 
                     @if ($errors->has('incorrect'))
                         <p class="font-bold text-red-500">{{ $errors->first('incorrect') }}</p>
