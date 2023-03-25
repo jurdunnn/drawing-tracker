@@ -71,4 +71,9 @@ class Project extends Model
     {
         return Str::contains(url()->current(), "projects/{$this->id}/");
     }
+
+    public function hasDrawingsTaggedBy(Tag $tag)
+    {
+        return $this->drawings->where('done', false)->where('tag_id', $tag->id)->count() > 0;
+    }
 }

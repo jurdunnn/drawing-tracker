@@ -18,10 +18,14 @@
                     @foreach ($tags as $tag)
                         <button 
                             @class([
-                                "px-3 py-2 my-3 ml-auto mr-auto font-bold text-center cursor-pointer hover:scale-105 slow-hover rounded-xl hover:bg-{$tag->color->name}-500 hover:text-white",
+                                "px-3 py-2 my-3 ml-auto mr-auto font-bold text-center",
                                 "bg-{$tag->color->name}-500 text-white" => $activeTab === $tag->name,
+                                "cursor-pointer hover:scale-105 slow-hover rounded-xl hover:bg-{$tag->color->name}-500 hover:text-white" => $project->hasDrawingsTaggedBy($tag),
+                                "text-gray-300 cursor-not-allowed" => !$project->hasDrawingsTaggedBy($tag),
                             ])
-                            wire:click="setActiveTab('{{ $tag->name }}')"
+                            @if ($project->hasDrawingsTaggedBy($tag))
+                                wire:click="setActiveTab('{{ $tag->name }}')"
+                            @endif
                             >
                             {{ $tag->name }}
                         </button>
