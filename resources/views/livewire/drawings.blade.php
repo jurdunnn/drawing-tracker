@@ -7,7 +7,7 @@
                 <div class="flex flex-row flex-wrap justify-between w-full py-2 text-md gap-x-2">
                     <button 
                         @class([
-                            'px-3 py-2 my-3 ml-auto mr-auto font-bold text-center cursor-pointer hover:scale-105 slow-hover rounded-xl hover:bg-gray-500 hover:text-white',
+                            'px-3 py-2 my-3 ml-auto mr-auto text-sm sm:text-base font-bold text-center cursor-pointer hover:scale-105 slow-hover rounded-xl hover:bg-gray-500 hover:text-white',
                             'bg-gray-500 text-white' => $activeTab === 'All Drawings',
                         ])
                         wire:click="setActiveTab('All Drawings')"
@@ -18,7 +18,7 @@
                     @foreach ($tags as $tag)
                         <button 
                             @class([
-                                "px-3 py-2 my-3 ml-auto mr-auto font-bold text-center",
+                                "px-3 py-2 my-3 text-sm sm:text-base ml-auto mr-auto font-bold text-center",
                                 "bg-{$tag->color->name}-500 text-white" => $activeTab === $tag->name,
                                 "cursor-pointer hover:scale-105 slow-hover rounded-xl hover:bg-{$tag->color->name}-500 hover:text-white" => $project->hasDrawingsTaggedBy($tag),
                                 "text-gray-300 cursor-not-allowed" => !$project->hasDrawingsTaggedBy($tag),
