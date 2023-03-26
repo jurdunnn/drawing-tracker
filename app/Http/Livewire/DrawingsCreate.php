@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Drawing;
 use App\Models\Project;
 use App\Models\Tag;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -18,7 +19,7 @@ class DrawingsCreate extends Component
     public $updating;
 
     protected $rules = [
-        'file' => 'max:10240',
+        'file' => 'required_if:drawing.file_path,!null|image|max:20000',
         'drawing.tag_id' => 'int|required',
         'drawing.name' => 'string|required',
         'drawing.file_path' => 'string',
@@ -37,7 +38,7 @@ class DrawingsCreate extends Component
 
         $this->drawing = $drawing ?: new Drawing();
 
-        $this->updating = isset($drawing->name);
+        $this->updating = isset($drawing->id);
     }
 
     public function setTag($tag)
@@ -55,18 +56,20 @@ class DrawingsCreate extends Component
 
     public function submit()
     {
-        if (!$this->updating) {
-            $this->drawing->done = false;
-            $this->drawing->project_id = $this->project->id;
+        if ($this->file) {
+            $this->drawing->file_path = $this->file->store('files');
         }
 
-        if ($this->file) {
-            $this->drawing->file_path = '';
+        if ($this->updating && $this->drawing->file_path) {
+            unset($this->rules['file']);
         }
 
         $this->validate();
 
-        $this->drawing->file_path = $this->file->store('files');
+        if (!$this->updating) {
+            $this->drawing->done = false;
+            $this->drawing->project_id = $this->project->id;
+        }
 
         $this->drawing->save();
 

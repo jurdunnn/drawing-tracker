@@ -7,11 +7,11 @@
                 <div class="flex flex-col gap-y-6">
                     <form wire:submit.prevent="submit" class="flex flex-col gap-y-14">
                         <div>
-                            <x-input model="drawing.name" type="text" name="name" label="Drawing Name" placeholder="Name" class="w-full"/>
+                            <x-input model="drawing.name" type="text" name="name" label="Drawing Name*" placeholder="Name" class="w-full"/>
                         </div>
 
                         <div>
-                            <x-input model="file" type="file" name="file" label="File" class="w-full"/>
+                            <x-input model="file" type="file" name="file" label="File*" class="w-full"/>
                         </div>
 
                         <div class="flex flex-col justify-between lg:flex-row gap-x-4">
@@ -27,7 +27,7 @@
                         </div>
 
                         <div>
-                            <label>Tag</label>
+                            <label>Tag*</label>
                             <div class="flex flex-wrap mt-4 gap-6">
                                 @foreach($tags as $tag)
                                     <a 
