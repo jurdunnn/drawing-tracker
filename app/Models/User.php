@@ -66,4 +66,13 @@ class User extends Authenticatable
 
         return $acronym;
     }
+
+    public function cascadeDelete()
+    {
+        $this->projects->each(function ($project) {
+            $project->cascadeDelete();
+        });
+
+        $this->delete();
+    }
 }

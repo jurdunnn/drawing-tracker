@@ -76,4 +76,13 @@ class Project extends Model
     {
         return $this->drawings->where('done', false)->where('tag_id', $tag->id)->count() > 0;
     }
+
+    public function cascadeDelete()
+    {
+        $this->drawings->each(function ($drawing) {
+            $drawing->delete();
+        });
+
+        $this->delete();
+    }
 }
