@@ -6,7 +6,7 @@
 
 <div 
     @class([
-        'absolute flex bottom-4 gap-6 right-4',
+        'absolute flex flex-col sm:flex-row bottom-4 gap-6 right-4',
         $class,
     ])
     x-data="{ showProjectOptions: false }" 
