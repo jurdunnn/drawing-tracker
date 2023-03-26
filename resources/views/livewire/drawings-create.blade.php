@@ -32,7 +32,7 @@
                                 @foreach($tags as $tag)
                                     <a 
                                         wire:click="setTag({{ $tag }})" 
-                                        class="flex items-center mx-auto md:mx-0 w-32 font-bold select-none text-center @if($drawing->tag_id == $tag->id) scale-110 ring-1 ring-{{ $project->color->name}}-500 @endif text-white bg-{{ $tag->color->name }}-500 opacity-[0.6] rounded-full cursor-pointer slow-hover hover:scale-105"
+                                        class="flex items-center mx-auto md:mx-0 w-32 font-bold select-none text-center @if($drawing->tag_id == $tag->id) animate-bounce @endif text-white bg-{{ $tag->color->name }}-500 opacity-[0.6] rounded-full cursor-pointer slow-hover hover:scale-105"
                                         >
                                         <p class="w-32">{{ $tag->name }}</p>
                                     </a>
