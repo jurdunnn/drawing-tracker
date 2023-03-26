@@ -9,7 +9,7 @@ class DrawingsApiController extends Controller
 {
     public function getDrawingImage(Drawing $drawing)
     {
-        if (auth()->user()->id != $drawing->project->user->id) {
+        if (!auth()->user() || auth()->user()->id != $drawing->project->user->id) {
             abort(403, 'Not allowed');
         }
 
