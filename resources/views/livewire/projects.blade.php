@@ -52,6 +52,10 @@
                 />
         </div>
 
+        @if(auth()->user()->guest)
+            <p class="-mt-5"><span class="font-bold">Note: </span>Guest accounts are limited to a 24 hour lifespan, after 24 hours from creation this account will be deleted.</p>
+        @endif
+
         <div class="mt-12 grid grid-cols-2 sm:grid-cols-3 gap-x-1 md:gap-x-0 gap-y-12">
             @foreach($projects as $project)
                 <a wire:click="redirectToProject({{ $project->id }})" class="flex flex-col cursor-pointer max-w-content gap-y-2 hover:scale-105 slow-hover">
