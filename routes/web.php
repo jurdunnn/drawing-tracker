@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginAsGuestController;
 use App\Http\Controllers\LoginController;
 use App\Http\Livewire\ArchivedDrawings;
 use App\Http\Livewire\Drawings;
@@ -17,6 +18,7 @@ Route::redirect('/', '/login');
 Route::get('login', [LoginController::class, 'index'])->name('login');
 
 Route::post('authenticate', [LoginController::class, 'authenticate'])->name('authenticate');
+Route::post('/guest/authenticate', [LoginAsGuestController::class, 'authenticate'])->name('guest-authenticate');
 
 Route::get('logout', function () {
     Auth::logout();

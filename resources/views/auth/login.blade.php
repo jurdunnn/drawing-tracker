@@ -21,7 +21,11 @@
                 </form>
             </div>
 
-            <x-button theme="secondary" link="#">Login as a guest</x-button>
+            <form method="POST" action="{{ route('guest-authenticate') }}">
+                @csrf 
+
+                <x-button buttonTag="button" theme="secondary" type="submit">Login as a guest</x-button>
+            </form>
         </div>
     </div>
 </x-layouts.app>
