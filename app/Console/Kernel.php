@@ -16,6 +16,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('clean:drawings')->dailyAt('00:00');
+        $schedule->command('clean:guests')->hourly();
     }
 
     /**
