@@ -34,13 +34,13 @@
 
                 <ul class="flex flex-col gap-y-4">
                     @foreach($drawings as $drawing)
-                        <li class="flex flex-col justify-between h-full px-4 py-2 hover:scale-[101%] hover:bg-gray-200 rounded-md md:flex-row @if($drawing->due_date && $drawing->due_date < now()) text-red-500 @endif">
+                        <li class="flex justify-between h-full px-4 py-2 hover:scale-[101%] hover:bg-gray-200 rounded-md @if($drawing->due_date && $drawing->due_date < now()) text-red-500 @endif">
                             <a x-on:click="selectedDrawing = {{ $drawing->id }}" class="flex w-full cursor-pointer gap-x-4">
                                 <div data-tippy-content="{{$drawing->tag->name}}" class="flex shrink-0 text-white select-none font-bold items-center justify-center w-5 h-5 my-auto bg-{{ $drawing->tag->color->name }}-500 rounded-md">
                                 </div>
                                 <div class="flex flex-col">
                                     <h4 class="font-bold">{{ $drawing->name }}</h4>
-                                    <div class="flex gap-x-2">
+                                    <div class="flex flex-col sm:flex-row gap-x-2">
                                         @if ($drawing->start_date)
                                             <p class="text-xs">Start: {{ $drawing->formatted_start_date }}</p>
                                         @endif
@@ -52,7 +52,7 @@
                                 </div>
                             </a>
 
-                            <div class="flex items-center mt-4 ml-9 md:ml-0 md:mt-0 gap-x-4" x-data="{ confirmDelete: false }">
+                            <div class="flex items-center mt-4 ml-9 md:ml-0 md:mt-0 gap-x-2 sm:gap-x-4" x-data="{ confirmDelete: false }">
                                 <!-- Delete Button and Delete confirmation -->
                                 <x-button xclick="confirmDelete = true" x-show="!confirmDelete" x-cloak icon="fa-trash fa-lg" tooltip="Delete" iconColor="text-red-500" buttonClasses="hover:scale-110 slow-hover cursor-pointer" theme="none" />
                                 <div class="flex gap-x-2" x-show="confirmDelete" x-cloak>
