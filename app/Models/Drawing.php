@@ -75,17 +75,29 @@ class Drawing extends Model
 
     public function getBase64ImageAttribute()
     {
+        $userId = auth()->user()->id;
+
         try {
+            Log::info("$userId requested image {$this->file_path}");
+
             $download = Storage::download($this->file_path);
+
+            Log::info($download);
 
             $contentType = $download->headers->get('content-type');
 
             $contents = Storage::get($this->file_path);
+
+            if ($contents) {
+                Log::info("image has contents");
+            }
         } catch (Exception $e) {
             Log::error($e->getMessage());
 
-            return '';
+            return 'There was an error retrieving this drawing';
         }
+
+        Log::info("Returning image");
 
         return "data:{$contentType};base64," . base64_encode($contents);
     }
