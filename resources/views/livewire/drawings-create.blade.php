@@ -21,7 +21,10 @@
                             </div>
 
                             <div class="w-full">
-                                <label for="Due Date">Due date</label>
+                                <div class="flex flex-row justify-between">
+                                    <label for="Due Date">Due date</label>
+                                    <a wire:click="clearDates()" class="my-auto text-sm cursor-pointer hover:scale-105">Clear</a>
+                                </div>
                                 <x-input model="drawing.due_date" type="date" name="Due Date" class="w-full"/>
                             </div>
                         </div>

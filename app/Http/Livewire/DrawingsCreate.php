@@ -76,6 +76,12 @@ class DrawingsCreate extends Component
         return redirect($this->project->showRoute());
     }
 
+    public function clearDates()
+    {
+        $this->drawing->due_date = null;
+        $this->drawing->start_date = null;
+    }
+
     public function render()
     {
         $tags = Tag::all();
