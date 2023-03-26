@@ -48,10 +48,15 @@
         Alpine.data('globalData', () => ({
                 fullscreen: 'false',
                 selectedDrawing: null,
+                isMobile: navigator.userAgent.includes('Mobile'),
                 isLoading: {
                     drawingModal: false,
                 },
                 init() {
+                    if (this.isMobile) {
+                        localStorage.fullscreen = 'true';
+                    }
+
                     if (window.location.pathname === '/projects') {
                         localStorage.fullscreen = 'false';
                     } 
