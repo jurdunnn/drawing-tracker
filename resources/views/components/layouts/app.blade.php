@@ -29,7 +29,7 @@
                                 <i class="fa-solid fa-spinner fa-spin fa-6x"></i>
                             </span>
                         </template>
-                        <img class="my-auto" :src="selectedDrawingModalSrc" />
+                        <img class="object-cover my-auto max-h-[80vh]" :src="selectedDrawingModalSrc" />
                     </div>
                 </x-modal>
             </div>
